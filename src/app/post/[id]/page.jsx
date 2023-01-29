@@ -4,8 +4,7 @@ import PostInfo from "@/components/PostInfo";
 import LayoutBuilder from "@/components/LayoutBuilder";
 import Footer from "@/components/Footer";
 
-async function getPost({ params }) {
-  const { id } = params;
+async function getPost(id) {
   const url = `${process.env.BASE_URL}/posts/${id}`;
   const res = await fetch(url);
 
@@ -15,8 +14,8 @@ async function getPost({ params }) {
   return res.json();
 }
 
-const Post = async ({ params, searchParams }) => {
-  const post = await getPost({ params });
+const Post = async ({ params: { id }, searchParams }) => {
+  const post = await getPost(id);
   const { coverImg, layout } = post;
   return (
     <div>
