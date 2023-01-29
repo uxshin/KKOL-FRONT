@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Collapes from "react-collapse";
-import { motion } from "framer-motion";
 
 const PostCard = ({ post }) => {
   const { projectName, concept, thumbnail, id } = post;

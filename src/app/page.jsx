@@ -1,8 +1,6 @@
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import MotionDiv from "@/components/MotionDiv";
 import PostCard from "@/components/PostCard";
-import { motion } from "framer-motion";
 
 async function getData() {
   const url = `${process.env.BASE_URL}/posts`;
