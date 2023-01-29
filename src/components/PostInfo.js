@@ -1,5 +1,5 @@
 import React from "react";
-import BuildRow from "@/components/BuildRow";
+import BuildRow from "@/components/uildRow";
 
 const PostInfo = ({ post }) => {
   const {
