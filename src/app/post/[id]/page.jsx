@@ -8,6 +8,10 @@ async function getPost({ params }) {
   const { id } = params;
   const url = `${process.env.BASE_URL}/posts/${id}`;
   const res = await fetch(url);
+
+  if (!res.ok) {
+    throw Error();
+  }
   return res.json();
 }
 
