@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 async function getPost({ params }) {
   const { id } = params;
-  const url = `http://localhost:3000/api/posts/${id}`;
+  const url = `${process.env.BASE_URL}/posts/${id}`;
   const res = await fetch(url);
   return res.json();
 }
