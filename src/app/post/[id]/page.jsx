@@ -3,6 +3,7 @@ import Image from "next/image";
 import PostInfo from "@/components/PostInfo";
 import LayoutBuilder from "@/components/LayoutBuilder";
 import Footer from "@/components/Footer";
+import "server-only";
 
 async function getPost(id) {
   const url = `${process.env.BASE_URL}/posts/${id}`;
