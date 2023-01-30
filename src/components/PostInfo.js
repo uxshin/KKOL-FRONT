@@ -12,7 +12,6 @@ const PostInfo = ({ post }) => {
     client,
     type,
   } = post;
-  console.log(teams);
 
   const teamsText = teams.map((team) => team.name).join(", ");
   const brandText = branding.map((brand) => brand.name).join(", ");

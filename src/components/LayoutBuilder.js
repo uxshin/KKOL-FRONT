@@ -36,7 +36,6 @@ const LayoutBuilder = ({ layout }) => {
   const className = `${getWidth(width)} flex flex-col ${getAlign(
     align
   )} mb-[150px] space-y-10`;
-  console.log(className);
   return (
     <div className={className}>
       <Image

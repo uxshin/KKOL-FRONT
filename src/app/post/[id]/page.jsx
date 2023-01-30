@@ -15,7 +15,7 @@ async function getPost(id) {
   return res.json();
 }
 
-const Post = async ({ params: { id }, searchParams }) => {
+const Page = async ({ params: { id }, searchParams }) => {
   const post = await getPost(id);
   const { coverImg, layout } = post;
   return (
@@ -41,4 +41,4 @@ const Post = async ({ params: { id }, searchParams }) => {
   );
 };
 
-export default Post;
+export default Page;
