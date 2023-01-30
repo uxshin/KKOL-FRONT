@@ -5,7 +5,7 @@ import LayoutBuilder from "@/components/LayoutBuilder";
 import Footer from "@/components/Footer";
 
 async function getPost(id) {
-  const url = `${process.env.BASE_URL}/post/${id}`;
+  const url = `${process.env.BASE_URL}/posts/${id}`;
   const res = await fetch(url);
 
   if (!res.ok) {
