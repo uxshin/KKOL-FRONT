@@ -1,45 +1,59 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import PostInfo from "@/components/PostInfo";
 import LayoutBuilder from "@/components/LayoutBuilder";
-async function getPost(id) {
+
+const Post = ({ params: { id }, searchParams }) => {
+  const [post, setPost] = useState(null);
+  const [isLoading, setLoading] = useState(false);
   const populate =
     "populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
   const url = `${process.env.BASE_URL}/posts/${id}?${populate}`;
-  const res = await fetch(url);
+  const rawUrl =
+    "https://cms-kkolstudio.onrender.com/api/posts/1?populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
+  useEffect(() => {
+    setLoading(true);
+    fetch(rawUrl)
+      .catch((e) => console.log(e))
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        setPost(result.data);
+        setLoading(false);
+      });
+  }, []);
 
-  if (!res.ok) {
-    throw Error();
-  }
-  return res.json();
-}
+  if (isLoading) return <p>Loading...</p>;
 
-const Post = async ({ params: { id }, searchParams }) => {
-  const post = await getPost(id);
-  const { data } = post;
-  const { cover, contents } = data;
   return (
     <div>
       {/* Cover */}
-      <Image
-        src={cover.url}
-        width={cover.width}
-        height={cover.height}
-        className="w-full mb-[180px]"
-      />
+      {post && (
+        <Image
+          src={post.cover.url}
+          alt={post.cover.name}
+          width={post.cover.width}
+          height={post.cover.height}
+          className="w-full mb-[180px]"
+        />
+      )}
       {/* <!-- Content > */}
-      <div className="w-3/4 mx-auto">
-        <PostInfo post={data} />
-        <div className="flex flex-col w-full">
-          {contents &&
-            contents.map((item) => (
-              <LayoutBuilder key={item.id} layout={item} />
-            ))}
-        </div>
+      {post && (
+        <div className="w-3/4 mx-auto">
+          <PostInfo post={post} />
+          <div className="flex flex-col w-full">
+            {post.contents &&
+              post.contents.map((item) => (
+                <LayoutBuilder key={item.id} layout={item} />
+              ))}
+          </div>
 
-        <Footer isShow={true} />
-      </div>
+          <Footer isShow={true} />
+        </div>
+      )}
     </div>
   );
 };
