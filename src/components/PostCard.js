@@ -5,7 +5,8 @@ import Link from "next/link";
 import Collapes from "react-collapse";
 
 const PostCard = ({ post }) => {
-  const { projectName, concept, thumbnail, id } = post;
+  const { title, description, thumbnail, id } = post;
+  const { url, name, width, height } = thumbnail;
   const postLink = `/post/${id}`;
   const [isOpen, setOpen] = useState(false);
   const toggle = () => {
@@ -18,8 +19,8 @@ const PostCard = ({ post }) => {
         onClick={toggle}
         className="flex justify-between hover:cursor-pointer border-b-[1px] py-1 text-lg border-black"
       >
-        <p>{projectName}</p>
-        <p>{concept}</p>
+        <p>{title}</p>
+        <p>{description}</p>
       </div>
       {/* <!-- body --> */}
       <Collapes isOpened={isOpen}>
@@ -29,10 +30,10 @@ const PostCard = ({ post }) => {
             className="w-3/8 lg:w-1/2 transition-opacity duration-500 ease-in-out hover:opacity-40"
           >
             <Image
-              src={thumbnail.url}
-              width={371}
-              height={189}
-              alt={thumbnail.alt}
+              src={url}
+              width={width}
+              height={height}
+              alt={name}
               className="w-full"
             />
           </Link>

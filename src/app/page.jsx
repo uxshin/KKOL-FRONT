@@ -1,15 +1,14 @@
 import Hero from "@/components/Hero";
 import MotionDiv from "@/components/MotionDiv";
 import PostCard from "@/components/PostCard";
-
 async function getData() {
-  const url = `${process.env.BASE_URL}/posts`;
+  const url = `${process.env.BASE_URL}/posts?populate[0]=thumbnail`;
   const res = await fetch(url);
   return res.json();
 }
 
 export default async function Home() {
-  const { docs } = await getData();
+  const { data } = await getData();
   function range(start, stop, step) {
     if (typeof stop == "undefined") {
       // one param defined
@@ -39,8 +38,8 @@ export default async function Home() {
       <Hero text={`꼴 스튜디오 소개 국문 텍스트 위치 18pt`} />
       <div className="mb-[180px] lg:border-b-[1px] lg:border-black lg:pb-[180px]">
         {startYear.map((year, i) => {
-          const filter = docs.filter(
-            (doc) => year.toString() === doc.projectCompleteDate.split("-")[0]
+          const filter = data.filter(
+            (doc) => year.toString() === doc.completedAt.split("-")[0]
           );
           if (filter.length > 0) {
             return (

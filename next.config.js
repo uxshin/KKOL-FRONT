@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "ggolstudio-cms.onrender",
       },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
     ],
   },
 };

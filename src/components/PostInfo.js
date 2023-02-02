@@ -3,20 +3,18 @@ import BuildRow from "@/components/BuildRow";
 
 const PostInfo = ({ post }) => {
   const {
-    teams,
+    designTeams,
     construction,
-    photographer,
+    photograph,
     area,
     location,
     branding,
     client,
-    type,
   } = post;
-  console.log(teams);
-
-  const teamsText = teams.map((team) => team.name).join(", ");
+  const type = "cafe";
+  const teamsText = designTeams.map((team) => team.name).join(", ");
   const brandText = branding.map((brand) => brand.name).join(", ");
-  const photoText = photographer.map((photo) => photo.name).join(", ");
+  const photoText = photograph.map((photo) => photo.name).join(", ");
   const areaText = area + "㎡";
   return (
     <div className="flex flex-col mb-[285px]">
@@ -30,7 +28,7 @@ const PostInfo = ({ post }) => {
         title="Construction"
         content={construction}
         secondTitle="Type"
-        secondContent={type.name}
+        secondContent={type}
       />
       <BuildRow
         title="Branding"
@@ -42,7 +40,7 @@ const PostInfo = ({ post }) => {
         title="Photograph"
         content={photoText}
         secondTitle="Location"
-        secondContent={location.name}
+        secondContent={location}
       />
     </div>
   );

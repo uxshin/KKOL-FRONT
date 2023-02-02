@@ -5,7 +5,9 @@ import LayoutBuilder from "@/components/LayoutBuilder";
 import Footer from "@/components/Footer";
 
 async function getPost(id) {
-  const url = `${process.env.BASE_URL}/post/${id}`;
+  const populate =
+    "populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
+  const url = `${process.env.BASE_URL}/posts/${id}?${populate}`;
   const res = await fetch(url);
 
   if (!res.ok) {
@@ -16,22 +18,25 @@ async function getPost(id) {
 
 const Post = async ({ params: { id }, searchParams }) => {
   const post = await getPost(id);
-  const { coverImg, layout } = post;
+  const { data } = post;
+  const { cover, contents } = data;
   return (
     <div>
       {/* Cover */}
       <Image
-        src={coverImg.url}
-        width="1920"
-        height="1000"
+        src={cover.url}
+        width={cover.width}
+        height={cover.height}
         className="w-full mb-[180px]"
       />
       {/* <!-- Content > */}
       <div className="w-3/4 mx-auto">
-        <PostInfo post={post} />
+        <PostInfo post={data} />
         <div className="flex flex-col w-full">
-          {layout &&
-            layout.map((item) => <LayoutBuilder key={item.id} layout={item} />)}
+          {contents &&
+            contents.map((item) => (
+              <LayoutBuilder key={item.id} layout={item} />
+            ))}
         </div>
 
         <Footer isShow={true} />

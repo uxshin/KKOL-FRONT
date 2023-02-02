@@ -1,28 +1,29 @@
 import React from "react";
 import Image from "next/image";
-
+import MotionDiv from "./MotionDiv";
 const LayoutBuilder = ({ layout }) => {
-  const { width, align, coverImg, description, subtext } = layout;
+  const { width, alignment, text, subText, blockImage } = layout;
+  const { url, name, height } = blockImage;
   function getWidth(width) {
     switch (width) {
-      case "1":
+      case "one":
         return "w-1/6";
-      case "2":
+      case "two":
         return "w-1/3";
-      case "3":
+      case "three":
         return "w-1/2";
-      case "4":
+      case "four":
         return "w-2/3";
-      case "5":
+      case "five":
         return "w-5/6";
       default:
         return "w-full";
     }
   }
 
-  function getAlign(align) {
-    switch (align) {
-      case "left":
+  function getAlign(alignment) {
+    switch (alignment) {
+      case "align":
         return "self-start";
       case "center":
         return "self-center";
@@ -34,21 +35,21 @@ const LayoutBuilder = ({ layout }) => {
   }
 
   const className = `${getWidth(width)} flex flex-col ${getAlign(
-    align
+    alignment
   )} mb-[150px] space-y-10`;
-  console.log(className);
+
   return (
-    <div className={className}>
+    <MotionDiv classname={className}>
       <Image
-        src={coverImg.url}
-        alt={coverImg.alt}
-        width={coverImg.width}
-        height={coverImg.height}
+        src={url}
+        alt={name}
+        width={blockImage.width}
+        height={height}
         className="w-full"
       />
-      <p className="w-full whitespace-normal">{description}</p>
-      <p className="w-full whitespace-normal">{subtext}</p>
-    </div>
+      <p className="w-full whitespace-normal">{text}</p>
+      <p className="w-full whitespace-normal">{subText}</p>
+    </MotionDiv>
   );
 };
 
