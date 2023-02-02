@@ -13,6 +13,7 @@ const PostInfo = ({ post }) => {
   } = post;
   const type = "cafe";
   const teamsText = designTeams.map((team) => team.name).join(", ");
+
   const brandText = branding.map((brand) => brand.name).join(", ");
   const photoText = photograph.map((photo) => photo.name).join(", ");
   const areaText = area + "㎡";

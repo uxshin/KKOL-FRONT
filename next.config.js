@@ -11,7 +11,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "ggolstudio-cms.onrender",
+        hostname: "kkolstudio.onrender.com",
       },
       {
         protocol: "https",
