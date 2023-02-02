@@ -1,32 +1,39 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import PostInfo from "@/components/PostInfo";
 import LayoutBuilder from "@/components/LayoutBuilder";
 
-const Post = ({ params: { id }, searchParams }) => {
-  const [post, setPost] = useState(null);
-  const [isLoading, setLoading] = useState(false);
-  const populate =
-    "populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
-  const url = `${process.env.BASE_URL}/posts/${id}?${populate}`;
+async function getPost() {
   const rawUrl =
     "https://cms-kkolstudio.onrender.com/api/posts/1?populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
-  useEffect(() => {
-    setLoading(true);
-    fetch(rawUrl)
-      .catch((e) => console.log(e))
-      .then((res) => res.json())
-      .then((result) => {
-        console.log(result);
-        setPost(result.data);
-        setLoading(false);
-      });
-  }, []);
+  const res = await fetch(rawUrl);
+  return res.json();
+}
 
-  if (isLoading) return <p>Loading...</p>;
+const Post = async ({ params: { id }, searchParams }) => {
+  // const [post, setPost] = useState(null);
+  // const [isLoading, setLoading] = useState(false);
+  // const populate =
+  //   "populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
+  // const url = `${process.env.BASE_URL}/posts/${id}?${populate}`;
+  // const rawUrl =
+  //   "https://cms-kkolstudio.onrender.com/api/posts/1?populate[0]=cover&populate[1]=designTeams&populate[2]=branding&populate[3]=photograph&populate[4]=contents.blockImage";
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch(rawUrl)
+  //     .catch((e) => console.log(e))
+  //     .then((res) => res.json())
+  //     .then((result) => {
+  //       console.log(result);
+  //       setPost(result.data);
+  //       setLoading(false);
+  //     });
+  // }, []);
+  const { data } = await getPost();
+  const post = data;
+
+  // if (isLoading) return <p>Loading...</p>;
 
   return (
     <div>
