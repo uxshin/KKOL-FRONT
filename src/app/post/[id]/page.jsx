@@ -12,7 +12,7 @@ import LayoutBuilder from "@/components/LayoutBuilder";
 //   return res.json();
 // }
 
-const Post = async ({ params: { id }, searchParams }) => {
+const Post = ({ params: { id }, searchParams }) => {
   const [post, setPost] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const populate =
