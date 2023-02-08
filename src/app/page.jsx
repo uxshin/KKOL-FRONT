@@ -1,14 +1,16 @@
 import Hero from "@/components/Hero";
 import MotionDiv from "@/components/MotionDiv";
 import PostCard from "@/components/PostCard";
+
 async function getData() {
-  const url = `${process.env.BASE_URL}/posts?populate[0]=thumbnail`;
+  const url = `${process.env.BASE_URL}posts?populate[0]=thumbnail`;
   const res = await fetch(url);
   return res.json();
 }
 
 export default async function Home() {
   const { data } = await getData();
+  console.log(data);
   function range(start, stop, step) {
     if (typeof stop == "undefined") {
       // one param defined
