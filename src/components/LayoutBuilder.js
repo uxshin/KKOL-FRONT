@@ -23,7 +23,7 @@ const LayoutBuilder = ({ layout }) => {
 
   function getAlign(alignment) {
     switch (alignment) {
-      case "align":
+      case "left":
         return "self-start";
       case "center":
         return "self-center";
