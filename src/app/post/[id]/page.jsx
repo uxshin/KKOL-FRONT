@@ -9,7 +9,7 @@ async function getPost(id) {
   return res.json();
 }
 
-const Post = async ({ params: { id }, searchParams }) => {
+const Post = async ({ params }) => {
   //   const [post, setPost] = useState(null);
   //   const [isLoading, setLoading] = useState(false);
   //   const populate =
@@ -28,6 +28,7 @@ const Post = async ({ params: { id }, searchParams }) => {
   //         setLoading(false);
   //       });
   //   }, []);
+  const { id } = params;
   const { data } = await getPost(id);
   const post = data;
   console.log(post);
