@@ -34,10 +34,17 @@ export default async function Home() {
     return result;
   }
   const startYear = range(2021, 2099).reverse();
-
+  const grettingText =
+    "꼴 스튜디오는 공간과 사람 간의 관계를 만듭니다." +
+    "\n" +
+    "관계는 공간을 정의하고 연결하며 적용됩니다.\n꼴 스튜디오는 기존의 꼴을 확장해 새로운 꼴을 창조합니다.";
   return (
     <MotionDiv classname="w-full lg:w-2/3 3xl:w-3/4 mx-auto px-2">
-      <Hero text={`꼴 스튜디오 소개 국문 텍스트 위치 18pt`} />
+      <div className="w-full h-screen">
+        <h1 className="w-1/3 absolute bottom-[280px] whitespace-pre-wrap">
+          {grettingText}
+        </h1>
+      </div>
       <div className="mb-[180px] lg:border-b-[1px] lg:border-black lg:pb-[180px]">
         {startYear.map((year, i) => {
           const filter = data.filter(
@@ -45,7 +52,7 @@ export default async function Home() {
           );
           if (filter.length > 0) {
             return (
-              <div key={i} className="pb-10">
+              <div key={i} className="pb-[500px]">
                 <h1 className="text-lg pb-2 3xl:pb-10">{year}</h1>
                 {filter &&
                   filter.map((doc) => {

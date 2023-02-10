@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import MotionDiv from "./MotionDiv";
 const LayoutBuilder = ({ layout }) => {
-  const { width, alignment, text, subText, blockImage } = layout;
+  const { width, align, text, subText, blockImage } = layout;
   const { url, name, height } = blockImage;
   function getWidth(width) {
     switch (width) {
@@ -21,8 +21,8 @@ const LayoutBuilder = ({ layout }) => {
     }
   }
 
-  function getAlign(alignment) {
-    switch (alignment) {
+  function getAlign(align) {
+    switch (align) {
       case "left":
         return "self-start";
       case "center":
@@ -35,7 +35,7 @@ const LayoutBuilder = ({ layout }) => {
   }
 
   const className = `${getWidth(width)} flex flex-col ${getAlign(
-    alignment
+    align
   )} mb-[150px] space-y-10`;
 
   return (

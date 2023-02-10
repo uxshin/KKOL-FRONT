@@ -66,7 +66,7 @@ const Post = ({ params }) => {
           alt={post.cover.name}
           width={post.cover.width}
           height={post.cover.height}
-          className="w-full mb-[180px]"
+          className="w-full  3xl:w-3/4 mx-auto mb-[180px]"
         />
       )}
       {/* <!-- Content > */}
