@@ -7,15 +7,15 @@ const LayoutBuilder = ({ layout }) => {
   function getWidth(width) {
     switch (width) {
       case "one":
-        return "w-1/6";
+        return "w-1/2 lg:w-1/6";
       case "two":
-        return "w-1/3";
+        return "w-3/4 lg:w-1/3";
       case "three":
-        return "w-1/2";
+        return "w-3/4 lg:w-1/2";
       case "four":
-        return "w-2/3";
+        return "w-3/4 lg:w-2/3";
       case "five":
-        return "w-5/6";
+        return "w-3/4 lg:w-5/6";
       default:
         return "w-full";
     }
@@ -36,7 +36,7 @@ const LayoutBuilder = ({ layout }) => {
 
   const className = `${getWidth(width)} flex flex-col ${getAlign(
     align
-  )} mb-[150px] space-y-10`;
+  )} mb-[120px] lg:mb-[150px] 3xl:mb-[200px] space-y-2.5 lg:space-y-3 3xl:space-y-8 leading-5 lg:leading-6 lg:leading-7`;
 
   return (
     <MotionDiv classname={className}>
@@ -47,8 +47,8 @@ const LayoutBuilder = ({ layout }) => {
         height={height}
         className="w-full"
       />
-      <p className="w-full whitespace-normal">{text}</p>
-      <p className="w-full whitespace-normal">{subText}</p>
+      <p className="">{text}</p>
+      <p className="">{subText}</p>
     </MotionDiv>
   );
 };

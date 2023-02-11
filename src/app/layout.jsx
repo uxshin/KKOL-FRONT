@@ -10,8 +10,8 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body>
-        <Header />
-        <main className="">{children}</main>
+        {/* <Header /> */}
+        {children}
       </body>
     </html>
   );

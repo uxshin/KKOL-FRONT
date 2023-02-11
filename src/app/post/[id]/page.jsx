@@ -4,7 +4,9 @@ import Image from "next/image";
 import Footer from "@/components/Footer";
 import PostInfo from "@/components/PostInfo";
 import LayoutBuilder from "@/components/LayoutBuilder";
-
+import Link from "next/link";
+import MotionDiv from "@/components/MotionDiv";
+import Header from "@/components/Header";
 async function getPost(id) {
   const rawUrl = `${process.env.BASE_URL}posts/${id}?populate[0]=cover&populate[1]=designers&populate[2]=brandings&populate[3]=photographs&populate[4]=block.blockImage`;
   const res = await fetch(rawUrl);
@@ -58,7 +60,8 @@ const Post = ({ params }) => {
     );
 
   return (
-    <div>
+    <MotionDiv className="">
+      <Header />
       {/* Cover */}
       {post && (
         <Image
@@ -66,12 +69,13 @@ const Post = ({ params }) => {
           alt={post.cover.name}
           width={post.cover.width}
           height={post.cover.height}
-          className="w-full  3xl:w-3/4 mx-auto mb-[180px]"
+          className="w-full 3xl:w-3/4 mx-auto px-2 "
         />
       )}
+      <div className="h-[50px] 3xl:h-[144px] lg:h-[118px]"></div>
       {/* <!-- Content > */}
       {post && (
-        <div className="w-3/4 mx-auto">
+        <div className="w-full 3xl:w-3/4 mx-auto px-2 lg:text-lg text-sm lg:leading-8 leading-6">
           <PostInfo post={post} />
           <div className="flex flex-col w-full">
             {post.blocks &&
@@ -83,7 +87,7 @@ const Post = ({ params }) => {
           <Footer isShow={true} />
         </div>
       )}
-    </div>
+    </MotionDiv>
   );
 };
 

@@ -10,7 +10,7 @@ const Footer = ({ isShow }) => {
     });
   };
   return (
-    <div className="border-t-[1px] border-black h-[170px] w-full mx-auto flex justify-end">
+    <div className="border-t-[1px] border-black 3xl:h-[120px] lg:h-[100px] h-[88px] w-full mx-auto flex justify-end px-2">
       {isShow && (
         <p
           className="hover:cursor-pointer mt-4 uppercase "

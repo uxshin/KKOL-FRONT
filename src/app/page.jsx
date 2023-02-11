@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import MotionDiv from "@/components/MotionDiv";
 import PostCard from "@/components/PostCard";
@@ -39,30 +40,36 @@ export default async function Home() {
     "\n" +
     "관계는 공간을 정의하고 연결하며 적용됩니다.\n꼴 스튜디오는 기존의 꼴을 확장해 새로운 꼴을 창조합니다.";
   return (
-    <MotionDiv classname="w-full lg:w-2/3 3xl:w-3/4 mx-auto px-2">
-      <div className="w-full h-screen">
-        <h1 className="w-1/3 absolute bottom-[280px] whitespace-pre-wrap">
-          {grettingText}
-        </h1>
-      </div>
-      <div className="mb-[180px] lg:border-b-[1px] lg:border-black lg:pb-[180px]">
-        {startYear.map((year, i) => {
-          const filter = data.filter(
-            (doc) => year.toString() === doc.completedAt.split("-")[0]
-          );
-          if (filter.length > 0) {
-            return (
-              <div key={i} className="pb-[500px]">
-                <h1 className="text-lg pb-2 3xl:pb-10">{year}</h1>
-                {filter &&
-                  filter.map((doc) => {
-                    return <PostCard key={doc.id} post={doc} />;
-                  })}
-              </div>
+    <>
+      <Header />
+      <MotionDiv classname="w-full lg:w-full 3xl:w-3/4 mx-auto px-2 lg:text-lg text-sm">
+        <div className="w-full lg:h-screen relative">
+          <h1 className="pt-[240px] pb-[170px] lg:py-0 lg:absolute 3xl:bottom-[280px] lg:bottom-[190px] bottom-[170px] whitespace-pre-wrap lg:leading-8 leading-6">
+            {grettingText}
+          </h1>
+        </div>
+        <div className="3xl:mb-[100px] lg:mb-[70px] mb-[50px] border-b-[1px] border-black lg:pb-[180px] ">
+          {startYear.map((year, i) => {
+            const filter = data.filter(
+              (doc) => year.toString() === doc.completedAt.split("-")[0]
             );
-          }
-        })}
-      </div>
-    </MotionDiv>
+            if (filter.length > 0) {
+              return (
+                <div
+                  key={i}
+                  className="3xl:pb-[389px] lg:pb-[350px] pb-[230px]"
+                >
+                  <h1 className="pb-2 3xl:py-5">{year}</h1>
+                  {filter &&
+                    filter.map((doc) => {
+                      return <PostCard key={doc.id} post={doc} />;
+                    })}
+                </div>
+              );
+            }
+          })}
+        </div>
+      </MotionDiv>
+    </>
   );
 }
