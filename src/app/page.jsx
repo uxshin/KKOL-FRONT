@@ -5,7 +5,7 @@ import PostCard from "@/components/PostCard";
 
 async function getData() {
   const url = `${process.env.BASE_URL}posts?populate[0]=thumbnail`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 10 } });
   return res.json();
 }
 
@@ -48,18 +48,15 @@ export default async function Home() {
             {grettingText}
           </h1>
         </div>
-        <div className="3xl:mb-[100px] lg:mb-[70px] mb-[50px] border-b-[1px] border-black lg:pb-[180px] ">
+        <div className="3xl:mb-[100px] lg:mb-[70px] mb-[50px] border-b-[1px] border-black 3xl:pb-[389px] lg:pb-[350px] pb-[230px]">
           {startYear.map((year, i) => {
             const filter = data.filter(
               (doc) => year.toString() === doc.completedAt.split("-")[0]
             );
             if (filter.length > 0) {
               return (
-                <div
-                  key={i}
-                  className="3xl:pb-[389px] lg:pb-[350px] pb-[230px]"
-                >
-                  <h1 className="pb-2 3xl:py-5">{year}</h1>
+                <div key={i} className="">
+                  <h1 className="py-2 3xl:py-5">{year}</h1>
                   {filter &&
                     filter.map((doc) => {
                       return <PostCard key={doc.id} post={doc} />;
