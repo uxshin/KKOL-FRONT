@@ -55,7 +55,7 @@ export default async function Home() {
             );
             if (filter.length > 0) {
               return (
-                <div key={i} className="3xl:pb-6 lg:pb-4 pb-3">
+                <div key={i} className="3xl:pb-[72px] lg:pb-[48px] pb-[36px]">
                   <h1 className="py-2 3xl:py-5">{year}</h1>
                   {filter &&
                     filter.map((doc) => {
