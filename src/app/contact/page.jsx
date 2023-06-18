@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 const Contact = () => {
   const listText =
     "kkol.studio@gmail.com \nInstagram @kkol.studio Office 서울시 \n마포구 공덕동 임정로 55-1";
+
   return (
     <>
       <Header />

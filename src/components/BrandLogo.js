@@ -4,15 +4,26 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-const BrandLogo = () => {
+const BrandLogo = (canMove) => {
+  if (canMove) {
+    <Image
+      src="/ggol_logo_n.svg"
+      width="0"
+      height="0"
+      sizes="100vw"
+      alt="logo"
+      className="w-[60px] h-[16px] 3xl:w-[121px] 3xl:h-[32px]"
+    />;
+  }
   return (
-    <Link href={`/`} className="">
+    <Link href={`/projects`} className="">
       <Image
         src="/ggol_logo_n.svg"
-        width={121}
-        height={32}
+        width="0"
+        height="0"
+        sizes="100vw"
         alt="logo"
-        className=""
+        className="w-[60px] h-[16px] 3xl:w-[121px] 3xl:h-[32px]"
       />
     </Link>
   );
