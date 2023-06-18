@@ -12,7 +12,7 @@ const BrandLogo = (canMove) => {
       height="0"
       sizes="100vw"
       alt="logo"
-      className="w-[60px] h-[16px] 3xl:w-[121px] 3xl:h-[32px]"
+      className="w-[60px] h-[16px] sm:w-[121px] sm:h-[32px]"
     />;
   }
   return (
@@ -23,7 +23,7 @@ const BrandLogo = (canMove) => {
         height="0"
         sizes="100vw"
         alt="logo"
-        className="w-[60px] h-[16px] 3xl:w-[121px] 3xl:h-[32px]"
+        className="w-[60px] h-[16px] sm:w-[121px] sm:h-[32px]"
       />
     </Link>
   );

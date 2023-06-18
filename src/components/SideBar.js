@@ -4,7 +4,7 @@ import BrandLogo from "@/components/BrandLogo";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-const SideBar = () => {
+const SideBar = ({ postList }) => {
   const pathname = usePathname();
   const menuList = [
     {
@@ -17,9 +17,9 @@ const SideBar = () => {
     },
   ];
   return (
-    <div className="w-full px-1.5 py-2 flex 3xl:inline items-center 3x:items-baseline justify-between 3xl:w-1/4 3xl:absolute 3xl:h-full 3xl:px-10 3xl:py-11">
+    <div className="w-full px-1.5 py-2 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11">
       <BrandLogo />
-      <ul className="flex space-x-4 3xl:space-x-0 text-[13px] 3xl:mt-[37px] 3xl:flex-col">
+      <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
         {menuList &&
           menuList.map((m) => (
             <Link key={m.name} href={m.route}>
@@ -34,6 +34,19 @@ const SideBar = () => {
               </li>
             </Link>
           ))}
+      </ul>
+      <ul className="absolute bottom-11 hidden sm:inline">
+        {postList &&
+          postList.map((p) => {
+            return (
+              <p
+                key={p.id}
+                className="text-[13px] leading-6 hover:cursor-pointer"
+              >
+                {p.title}
+              </p>
+            );
+          })}
       </ul>
     </div>
   );
