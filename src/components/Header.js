@@ -10,8 +10,8 @@ const Header = () => {
       <Link href={`/`} className="w-[60px] h-[16px] lg:w-[78px]">
         <Image
           src="/ggol-logo.png"
-          width={78}
-          height={20}
+          width={121}
+          height={32}
           alt="logo"
           className=""
         />
