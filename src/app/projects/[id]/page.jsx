@@ -26,9 +26,7 @@ const ProjectDetail = async ({ params }) => {
     photo,
     locale,
   } = post;
-  function handleBack() {
-    window.history.back();
-  }
+  if (!post) return null;
   return (
     <MotionDiv>
       <div className="w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
