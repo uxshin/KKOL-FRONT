@@ -3,14 +3,13 @@ import PostCard from "@/components/PostCard";
 import SideBar from "@/components/SideBar";
 
 async function getData() {
-  const url = `${process.env.BASE_URL}posts?populate[0]=thumbnail`;
+  const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail`;
   const res = await fetch(url);
   return res.json();
 }
 
 const Project = async () => {
   const { data } = await getData();
-  console.log(data);
   return (
     <MotionDiv>
       <SideBar postList={data} />

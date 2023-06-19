@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import MotionDiv from "./MotionDiv";
+import MotionDiv from "../MotionDiv";
 const LayoutBuilder = ({ layout }) => {
   const { width, align, text, subText, blockImage } = layout;
   const { url, name, height } = blockImage;

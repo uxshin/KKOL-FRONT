@@ -1,14 +1,11 @@
 "use client";
-import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Collapes from "react-collapse";
 
 const PostCard = ({ post }) => {
   const { title, subTitle, thumbnail, id } = post;
   const { url, name, width, height } = thumbnail;
   const postLink = `/projects/${id}`;
-  const [isOpen, setOpen] = useState(false);
 
   return (
     <Link href={postLink}>

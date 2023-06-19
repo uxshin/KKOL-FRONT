@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const SideBar = ({ postList }) => {
+  console.log(postList);
   const pathname = usePathname();
   const menuList = [
     {
