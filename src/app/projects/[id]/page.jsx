@@ -1,19 +1,29 @@
+"use client";
+
 import BackButton from "@/components/BackButton";
 import Carousel from "@/components/Carousel";
 import DetailRow from "@/components/DetailRow";
 import LocaleButton from "@/components/LocaleButton";
 import MotionDiv from "@/components/MotionDiv";
+import { useEffect, useState } from "react";
 
-async function getPost(id) {
-  const rawUrl = `https://cms-kkolstudio-w0mq.onrender.com/api/posts/${id}`;
-  const res = await fetch(rawUrl);
-  return res.json();
-}
-
-const ProjectDetail = async ({ params }) => {
+const ProjectDetail = ({ params }) => {
+  async function getPost(id) {
+    const rawUrl = `https://cms-kkolstudio-w0mq.onrender.com/api/posts/${id}`;
+    const res = await fetch(rawUrl);
+    return res.json();
+  }
   const { id } = params;
-  const { data } = await getPost(id);
-  const post = data;
+  const [post, setPost] = useState(null);
+  useEffect(() => {
+    getPost(id).then((json) => {
+      setPost(json.data);
+    });
+  }, []);
+
+  if (!post) {
+    return <div></div>;
+  }
   const {
     design,
     title,
@@ -26,9 +36,7 @@ const ProjectDetail = async ({ params }) => {
     photo,
     locale,
   } = post;
-  if (!post) {
-    return <p>this is error</p>;
-  }
+
   return (
     <MotionDiv>
       <div className="w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
