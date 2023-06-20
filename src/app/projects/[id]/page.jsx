@@ -22,6 +22,7 @@ const ProjectDetail = ({ params }) => {
     getPost(id).then((json) => {
       setPost(json.data);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (!post) {
@@ -104,12 +105,13 @@ const ProjectDetail = ({ params }) => {
           )}
           slideRef={ref}
         >
-          {images.map((i) => {
+          {images.map((i, index) => {
             return (
               <img
+                key={index}
                 src={i.url}
                 className="h-full w-full object-cover"
-                alt={title}
+                alt={title + index}
               />
             );
           })}
