@@ -15,8 +15,9 @@ const PostCard = ({ post }) => {
         height="0"
         sizes="100vw"
         alt={title}
-        className="w-full h-full aspect-[1.09/1] hover:cursor-pointer"
+        className="w-full h-full aspect-[1.5/1] sm:aspect-[1.09/1] hover:cursor-pointer"
       />
+      <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
     </Link>
   );
 };

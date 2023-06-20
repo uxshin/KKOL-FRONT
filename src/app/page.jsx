@@ -3,6 +3,7 @@
 import MotionDiv from "@/components/MotionDiv";
 import BrandLogo from "@/components/BrandLogo";
 import { useRouter } from "next/navigation";
+import SideBar from "@/components/SideBar";
 
 export default function Home() {
   const router = useRouter();
