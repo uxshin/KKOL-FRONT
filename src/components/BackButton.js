@@ -6,7 +6,7 @@ import { ChevronLeftIcon } from "@heroicons/react/24/solid";
 const BackButton = () => {
   const router = useRouter();
   function handleClick() {
-    router.push("/projects");
+    router.push("/");
   }
   return (
     <ChevronLeftIcon
