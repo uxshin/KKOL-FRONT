@@ -7,6 +7,7 @@ import MotionDiv from "@/components/MotionDiv";
 import { useEffect, useState, useRef } from "react";
 import { Carousel, IconButton } from "@material-tailwind/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import SideBar from "@/components/SideBar";
 
 const ProjectDetail = ({ params }) => {
   async function getPost(id) {
@@ -29,6 +30,13 @@ const ProjectDetail = ({ params }) => {
     return <div></div>;
   }
 
+  function goToTop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
   const {
     design,
     title,
@@ -46,7 +54,7 @@ const ProjectDetail = ({ params }) => {
 
   return (
     <MotionDiv>
-      <div className="w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
+      <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
         <BackButton />
         <div className="w-1/2 pr-4">
           <DetailRow title="디자인" body={design} />
@@ -77,13 +85,14 @@ const ProjectDetail = ({ params }) => {
         </div>
         <p className="text-[15px] pb-10">{content}</p>
       </div>
-      <div className="w-2/3 absolute right-0 h-screen text-white">
+
+      <div className="sm:w-2/3 w-full h-[250px] sm:h-screen absolute top-[60px] sm:top-0 sm:right-0 px-1.5 sm:px-0">
         <Carousel
-          className=""
+          className=" text-white"
           navigation={({ setActiveIndex, activeIndex, length }) => <div></div>}
           prevArrow={({ handlePrev }) => (
             <div
-              className="absolute w-1/2 h-screen z-50 hover:cursor-pointer opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-pointer opacity-0 hover:opacity-70"
               onClick={handlePrev}
             >
               <ArrowLeftIcon
@@ -94,7 +103,7 @@ const ProjectDetail = ({ params }) => {
           )}
           nextArrow={({ handleNext }) => (
             <div
-              className="absolute w-1/2 h-screen right-0  z-50 hover:cursor-pointer opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 hover:cursor-pointer opacity-0 hover:opacity-70"
               onClick={handleNext}
             >
               <ArrowRightIcon
@@ -116,6 +125,44 @@ const ProjectDetail = ({ params }) => {
             );
           })}
         </Carousel>
+      </div>
+
+      <div className="sm:hidden flex flex-col w-full pb-10 no-scrollbar">
+        <SideBar />
+        <div className="mt-[280px] px-1.5 flex flex-col">
+          <p className="text-[12px]">{title}</p>
+          <div className="w-1/3 self-end text-[8px] py-9">
+            <DetailRow title="디자인" body={design} />
+            <DetailRow title="시공" body={construction} />
+            <DetailRow title="브랜딩" body={branding} />
+            <DetailRow title="준공사진" body={photo} />
+            <DetailRow title="클라이언트" body={client} />
+            <DetailRow title="면적" body={area + " m2"} />
+            <DetailRow title="위치" body={location} />
+          </div>
+          <div className="flex flex-row space-x-0.5 text-[10px] py-2 items-center">
+            <LocaleButton
+              locale={locale}
+              title={title}
+              text={`KR`}
+              isSelected={locale == "ko"}
+            />
+            <p>/</p>
+            <LocaleButton
+              locale={locale}
+              title={title}
+              text={`EN`}
+              isSelected={locale == "en"}
+            />
+          </div>
+          <p className="text-[10px] pb-10">{content}</p>
+          <p
+            className="text-[10px] self-end hover:cursor-pointer "
+            onClick={goToTop}
+          >
+            TOP
+          </p>
+        </div>
       </div>
     </MotionDiv>
   );
