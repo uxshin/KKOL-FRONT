@@ -31,7 +31,7 @@ const SideBar = ({ postList }) => {
   const menuList = [
     {
       name: "PROJECT",
-      route: "/",
+      route: "/projects",
     },
     {
       name: "STUDIO",

@@ -16,7 +16,7 @@ const BrandLogo = (canMove) => {
     />;
   }
   return (
-    <Link href={`/`} className="">
+    <Link href={`/projects`} className="">
       <Image
         src="/ggol_logo_n.svg"
         width="0"
