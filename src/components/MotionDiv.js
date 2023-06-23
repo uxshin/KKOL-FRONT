@@ -10,7 +10,7 @@ const MotionDiv = ({ classname, children }) => {
       exit={{ opacity: 0 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 1.5 }}
+      transition={{ delay: 1.2 }}
       className={classname}
     >
       {children}
