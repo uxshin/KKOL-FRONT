@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import BrandLogo from "./BrandLogo";
-
+import { motion, AnimatePresence } from "framer-motion";
 const InitialModal = () => {
   const [isShow, setIsShow] = useState(true);
   const grettTxt1 =
@@ -10,9 +10,13 @@ const InitialModal = () => {
   const greetTxt2 =
     "공상가  1) 共想家 함께 고민하는 사람   2) 空想家 현실적이지 않은 것을 상상하는 사람";
   return (
-    <>
+    <AnimatePresence>
       {isShow && (
-        <div
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
           className="hidden sm:flex absolute top-0 left-0 w-full h-screen bg-white z-50 px-10 py-11  flex-col justify-between hover:cursor-pointer"
           onClick={() => setIsShow(false)}
         >
@@ -22,9 +26,9 @@ const InitialModal = () => {
 
             <p className="text-[13px]">{greetTxt2}</p>
           </div>
-        </div>
+        </motion.div>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

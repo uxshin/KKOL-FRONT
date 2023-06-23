@@ -5,7 +5,7 @@ import DetailRow from "@/components/DetailRow";
 import LocaleButton from "@/components/LocaleButton";
 import MotionDiv from "@/components/MotionDiv";
 import { useEffect, useState, useRef } from "react";
-import { Carousel, IconButton } from "@material-tailwind/react";
+import { Carousel } from "@material-tailwind/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import SideBar from "@/components/SideBar";
 

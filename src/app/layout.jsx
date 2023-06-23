@@ -1,4 +1,3 @@
-import Header from "@/components/legacy/Header";
 import "./globals.css";
 
 export default function RootLayout({ children }) {
