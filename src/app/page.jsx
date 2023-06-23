@@ -37,7 +37,6 @@ const Home = () => {
         <div className="absolute inset-x-10 bottom-1/4">
           <p className="w-[600px] mb-[57px] text-[15px]">{grettTxt1}</p>
           <p className="text-[13px]">{greetTxt2}</p>
-          <p>{width}</p>
         </div>
       </PageWrapper>
     </>
