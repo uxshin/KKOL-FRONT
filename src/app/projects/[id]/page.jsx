@@ -15,13 +15,22 @@ const ProjectDetail = ({ params }) => {
     const res = await fetch(rawUrl);
     return res.json();
   }
+  async function getPostList() {
+    const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail`;
+    const res = await fetch(url);
+    return res.json();
+  }
 
   const { id } = params;
   const [post, setPost] = useState(null);
+  const [postList, setPostList] = useState(null);
   const ref = useRef();
   useEffect(() => {
     getPost(id).then((json) => {
       setPost(json.data);
+    });
+    getPostList().then((json) => {
+      setPostList(json.data);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -128,7 +137,7 @@ const ProjectDetail = ({ params }) => {
       </div>
 
       <div className="sm:hidden flex flex-col w-full pb-10 no-scrollbar">
-        <SideBar />
+        <SideBar postList={postList} />
         <div className="mt-[280px] px-1.5 flex flex-col">
           <p className="text-[12px]">{title}</p>
           <div className="w-1/3 self-end text-[8px] py-9">
