@@ -1,21 +1,45 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const PostCard = ({ post }) => {
+  const [kHeight, setHeight] = useState(939);
+  useEffect(() => {
+    setHeight(window.innerHeight);
+
+    const onResize = () => {
+      console.log(window.innerHeight);
+      setHeight(window.innerHeight);
+    };
+    window.addEventListener("resize", onResize);
+  }, []);
+  const bHeight = (kHeight * 0.93 - 10) / 3;
   const { title, subTitle, thumbnail, id } = post;
   const { url, name, width, height } = thumbnail;
   const postLink = `/projects/${id}`;
 
   return (
-    <Link href={postLink}>
+    <Link
+      href={postLink}
+      className=""
+      style={{
+        height: bHeight,
+      }}
+    >
       <Image
         src={url}
+        // fill
+        // width={bHeight}
+        // height={bHeight}
+        // style={{ objectFit: "contain" }}
         width="0"
         height="0"
         sizes="100vw"
         alt={title}
-        className="w-full h-full aspect-[1.5/1] sm:aspect-[1.09/1] hover:cursor-pointer"
+        // className="object-contain"
+        // className={`w-[100px] h-[${bHeight}px] hover:cursor-pointer`}
+        className={`w-full h-full sm:aspect-[1/1] hover:cursor-pointer object-cover`}
       />
       <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
     </Link>

@@ -3,10 +3,21 @@
 import BrandLogo from "@/components/BrandLogo";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Transition } from "@headlessui/react";
 
-const SideBar = ({ postList }) => {
+const SideBar = () => {
+  async function getData() {
+    const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail`;
+    const res = await fetch(url);
+    return res.json();
+  }
+  const [postList, setPostList] = useState([]);
+  useEffect(() => {
+    getData().then((res) => {
+      setPostList(res.data);
+    });
+  }, []);
   let [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
@@ -88,7 +99,7 @@ const SideBar = ({ postList }) => {
             })}
         </ul>
         <ul className="absolute bottom-11 hidden sm:inline">
-          {postList &&
+          {postList.length > 0 &&
             postList.map((p) => {
               return (
                 <p

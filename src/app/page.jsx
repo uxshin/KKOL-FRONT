@@ -9,6 +9,7 @@ const Home = () => {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     setWidth(window.innerWidth);
+    console.log("height>>" + window.innerHeight);
     if (window.innerWidth < 540) {
       router.push("/projects");
       return;
