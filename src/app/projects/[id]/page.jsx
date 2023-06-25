@@ -3,11 +3,12 @@
 import BackButton from "@/components/BackButton";
 import DetailRow from "@/components/DetailRow";
 import LocaleButton from "@/components/LocaleButton";
-import MotionDiv from "@/components/MotionDiv";
 import { useEffect, useState, useRef } from "react";
 import { Carousel } from "@material-tailwind/react";
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import SideBar from "@/components/SideBar";
+import PageWrapper from "@/components/PageWrapper";
+import MotionDiv from "@/components/MotionDiv";
 
 const ProjectDetail = ({ params }) => {
   async function getPost(id) {
@@ -59,7 +60,6 @@ const ProjectDetail = ({ params }) => {
     locale,
     images,
   } = post;
-  console.log(post);
 
   return (
     <MotionDiv>
@@ -101,10 +101,10 @@ const ProjectDetail = ({ params }) => {
           navigation={({ setActiveIndex, activeIndex, length }) => <div></div>}
           prevArrow={({ handlePrev }) => (
             <div
-              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-pointer opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-w-resize opacity-0 hover:opacity-70"
               onClick={handlePrev}
             >
-              <ArrowLeftIcon
+              <ChevronLeftIcon
                 strokeWidth={2}
                 className="w-6 h-6 absolute top-2/4 -translate-y-2/4 left-4"
               />
@@ -112,10 +112,10 @@ const ProjectDetail = ({ params }) => {
           )}
           nextArrow={({ handleNext }) => (
             <div
-              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 hover:cursor-pointer opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 cursor-e-resize opacity-0 hover:opacity-70"
               onClick={handleNext}
             >
-              <ArrowRightIcon
+              <ChevronRightIcon
                 strokeWidth={2}
                 className="w-6 h-6 absolute top-2/4 -translate-y-2/4 right-4"
               />
@@ -124,11 +124,16 @@ const ProjectDetail = ({ params }) => {
           slideRef={ref}
         >
           {images.map((i, index) => {
+            console.log(i);
+            const imgClassName =
+              i.height > i.width
+                ? "w-full h-full object-contain"
+                : "w-full h-full object-cover";
             return (
               <img
                 key={index}
                 src={i.url}
-                className="h-full w-full object-cover"
+                className={imgClassName}
                 alt={title + index}
               />
             );

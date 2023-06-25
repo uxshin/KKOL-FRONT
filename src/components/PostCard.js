@@ -20,29 +20,48 @@ const PostCard = ({ post }) => {
   const postLink = `/projects/${id}`;
 
   return (
-    <Link
-      href={postLink}
-      className=""
-      style={{
-        height: bHeight,
-      }}
-    >
-      <Image
-        src={url}
-        // fill
-        // width={bHeight}
-        // height={bHeight}
-        // style={{ objectFit: "contain" }}
-        width="0"
-        height="0"
-        sizes="100vw"
-        alt={title}
-        // className="object-contain"
-        // className={`w-[100px] h-[${bHeight}px] hover:cursor-pointer`}
-        className={`w-full h-full sm:aspect-[1/1] hover:cursor-pointer object-cover`}
-      />
-      <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
-    </Link>
+    <>
+      <Link href={postLink} className="sm:hidden">
+        <Image
+          src={url}
+          // fill
+          // width={bHeight}
+          // height={bHeight}
+          // style={{ objectFit: "contain" }}
+          width="0"
+          height="0"
+          sizes="100vw"
+          alt={title}
+          // className="object-contain"
+          // className={`w-[100px] h-[${bHeight}px] hover:cursor-pointer`}
+          className={`w-full h-full aspect-[1/1] hover:cursor-pointer object-cover`}
+        />
+        <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
+      </Link>
+      <Link
+        href={postLink}
+        className="hidden sm:block"
+        style={{
+          height: bHeight,
+        }}
+      >
+        <Image
+          src={url}
+          // fill
+          // width={bHeight}
+          // height={bHeight}
+          // style={{ objectFit: "contain" }}
+          width="0"
+          height="0"
+          sizes="100vw"
+          alt={title}
+          // className="object-contain"
+          // className={`w-[100px] h-[${bHeight}px] hover:cursor-pointer`}
+          className={`w-full h-full aspect-[1/1] hover:cursor-pointer object-cover`}
+        />
+        <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
+      </Link>
+    </>
   );
 };
 

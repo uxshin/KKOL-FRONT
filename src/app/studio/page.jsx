@@ -1,4 +1,5 @@
 import MotionDiv from "@/components/MotionDiv";
+import PageWrapper from "@/components/PageWrapper";
 import SideBar from "@/components/SideBar";
 import React from "react";
 
