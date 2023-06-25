@@ -74,7 +74,7 @@ const ProjectDetail = ({ params }) => {
           <DetailRow title="면적" body={area + " m2"} />
           <DetailRow title="위치" body={location} />
         </div>
-        <div className="flex justify-between items-start mt-[300px] mb-7">
+        <div className="flex justify-between items-start mt-[300px] mb-[130px]">
           <p className="text-[15px] font-bold">{title}</p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
@@ -101,7 +101,7 @@ const ProjectDetail = ({ params }) => {
           navigation={({ setActiveIndex, activeIndex, length }) => <div></div>}
           prevArrow={({ handlePrev }) => (
             <div
-              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-w-resize opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-left opacity-0 hover:opacity-70"
               onClick={handlePrev}
             >
               <ChevronLeftIcon
@@ -112,7 +112,7 @@ const ProjectDetail = ({ params }) => {
           )}
           nextArrow={({ handleNext }) => (
             <div
-              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 cursor-e-resize opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 hover:cursor-right opacity-0 hover:opacity-70"
               onClick={handleNext}
             >
               <ChevronRightIcon

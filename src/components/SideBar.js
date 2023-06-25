@@ -132,7 +132,7 @@ const SideBar = ({ isShow }) => {
                   <p
                     onClick={() => goToProject(p.id)}
                     key={p.id}
-                    className="text-[12px] leading-5 hover:cursor-pointer"
+                    className="text-[12px] leading-[18px] hover:cursor-pointer"
                   >
                     {p.title}
                   </p>

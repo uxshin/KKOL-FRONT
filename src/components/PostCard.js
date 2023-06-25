@@ -34,7 +34,7 @@ const PostCard = ({ post }) => {
           alt={title}
           // className="object-contain"
           // className={`w-[100px] h-[${bHeight}px] hover:cursor-pointer`}
-          className={`w-full h-full aspect-[1/1] hover:cursor-pointer object-cover`}
+          className={`w-full h-full aspect-[1.2/1] sm:aspect-[1/1] hover:cursor-pointer object-cover`}
         />
         <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
       </Link>
@@ -57,7 +57,7 @@ const PostCard = ({ post }) => {
           alt={title}
           // className="object-contain"
           // className={`w-[100px] h-[${bHeight}px] hover:cursor-pointer`}
-          className={`w-full h-full aspect-[1/1] hover:cursor-pointer object-cover`}
+          className={`w-full h-full aspect-[1.2/1] sm:aspect-[1/1 hover:cursor-pointer object-cover`}
         />
         <p className="text-right text-[11px] sm:hidden py-1">{title}</p>
       </Link>

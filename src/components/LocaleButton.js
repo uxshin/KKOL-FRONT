@@ -17,7 +17,7 @@ const LocaleButton = ({ title, locale, text, isSelected }) => {
   }
 
   if (isSelected) {
-    return <p className="font-black">{text}</p>;
+    return <p className="">{text}</p>;
   }
   return (
     <p className="hover:cursor-pointer" onClick={handleClick}>

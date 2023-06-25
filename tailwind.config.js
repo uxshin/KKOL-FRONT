@@ -9,6 +9,10 @@ module.exports = withMT({
   ],
   theme: {
     extend: {
+      cursor: {
+        left: "url(/cursor/cursor_l.png), pointer",
+        right: "url(/cursor/cursor_r.png), pointer",
+      },
       screens: {
         "3xl": "1920px",
       },
