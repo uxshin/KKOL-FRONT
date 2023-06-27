@@ -62,6 +62,7 @@ const ProjectDetail = ({ params }) => {
   } = post;
 
   return (
+    // Desktop
     <MotionDiv>
       <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
         <BackButton />
@@ -74,7 +75,7 @@ const ProjectDetail = ({ params }) => {
           <DetailRow title="면적" body={area + " m2"} />
           <DetailRow title="위치" body={location} />
         </div>
-        <div className="flex justify-between items-start mt-[300px] mb-[130px]">
+        <div className="flex justify-between items-start mt-[400px] mb-[130px]">
           <p className="text-[15px] font-bold">{title}</p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
@@ -83,7 +84,7 @@ const ProjectDetail = ({ params }) => {
               text={`KR`}
               isSelected={locale == "ko"}
             />
-            <p>/</p>
+            <p className="text-[15px]">/</p>
             <LocaleButton
               locale={locale}
               title={title}
@@ -92,7 +93,7 @@ const ProjectDetail = ({ params }) => {
             />
           </div>
         </div>
-        <p className="text-[15px] pb-10">{content}</p>
+        <p className="text-[15px] pb-10 whitespace-pre-line">{content}</p>
       </div>
 
       <div className="sm:w-2/3 w-full h-[250px] sm:h-screen absolute top-[60px] sm:top-0 sm:right-0 px-1.5 sm:px-0">
@@ -169,7 +170,7 @@ const ProjectDetail = ({ params }) => {
               isSelected={locale == "en"}
             />
           </div>
-          <p className="text-[10px] pb-10">{content}</p>
+          <p className="text-[10px] pb-10 whitespace-pre-line">{content}</p>
           <p
             className="text-[10px] self-end hover:cursor-pointer "
             onClick={goToTop}

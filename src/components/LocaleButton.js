@@ -17,10 +17,10 @@ const LocaleButton = ({ title, locale, text, isSelected }) => {
   }
 
   if (isSelected) {
-    return <p className="">{text}</p>;
+    return <p className="sm:text-[15px]">{text}</p>;
   }
   return (
-    <p className="hover:cursor-pointer" onClick={handleClick}>
+    <p className="hover:cursor-pointer sm:text-[15px]" onClick={handleClick}>
       {text}
     </p>
   );
