@@ -4,7 +4,7 @@ import BackButton from "@/components/BackButton";
 import DetailRow from "@/components/DetailRow";
 import LocaleButton from "@/components/LocaleButton";
 import { useEffect, useState, useRef } from "react";
-import { Carousel } from "@material-tailwind/react";
+import { Carousel, menu } from "@material-tailwind/react";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import SideBar from "@/components/SideBar";
 import PageWrapper from "@/components/PageWrapper";
@@ -61,21 +61,51 @@ const ProjectDetail = ({ params }) => {
     images,
   } = post;
 
+  const menuText = [
+    {
+      ko: "디자인",
+      en: "Design",
+    },
+    {
+      ko: "시공",
+      en: "Construction",
+    },
+    {
+      ko: "브랜딩",
+      en: "Branding",
+    },
+    {
+      ko: "준공사진",
+      en: "Photo",
+    },
+    {
+      ko: "클라이언트",
+      en: "Client",
+    },
+    {
+      ko: "면적",
+      en: "Area",
+    },
+    {
+      ko: "위치",
+      en: "Location",
+    },
+  ];
   return (
     // Desktop
     <MotionDiv>
       <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
         <BackButton />
         <div className="w-1/2 pr-4">
-          <DetailRow title="디자인" body={design} />
-          <DetailRow title="시공" body={construction} />
-          <DetailRow title="브랜딩" body={branding} />
-          <DetailRow title="준공사진" body={photo} />
-          <DetailRow title="클라이언트" body={client} />
-          <DetailRow title="면적" body={area + " m2"} />
-          <DetailRow title="위치" body={location} />
+          <DetailRow title={menuText[0][locale]} body={design} />
+          <DetailRow title={menuText[1][locale]} body={construction} />
+          <DetailRow title={menuText[2][locale]} body={branding} />
+          <DetailRow title={menuText[3][locale]} body={photo} />
+          <DetailRow title={menuText[4][locale]} body={client} />
+          <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
+          <DetailRow title={menuText[6][locale]} body={location} />
         </div>
-        <div className="flex justify-between items-start mt-[400px] mb-[130px]">
+        <div className="flex justify-between items-start mt-[350px] mb-[130px]">
           <p className="text-[15px] font-bold">{title}</p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
@@ -147,13 +177,13 @@ const ProjectDetail = ({ params }) => {
         <div className="mt-[280px] px-1.5 flex flex-col">
           <p className="text-[12px]">{title}</p>
           <div className="w-1/3 self-end text-[8px] py-9">
-            <DetailRow title="디자인" body={design} />
-            <DetailRow title="시공" body={construction} />
-            <DetailRow title="브랜딩" body={branding} />
-            <DetailRow title="준공사진" body={photo} />
-            <DetailRow title="클라이언트" body={client} />
-            <DetailRow title="면적" body={area + " m2"} />
-            <DetailRow title="위치" body={location} />
+            <DetailRow title={menuText[0][locale]} body={design} />
+            <DetailRow title={menuText[1][locale]} body={construction} />
+            <DetailRow title={menuText[2][locale]} body={branding} />
+            <DetailRow title={menuText[3][locale]} body={photo} />
+            <DetailRow title={menuText[4][locale]} body={client} />
+            <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
+            <DetailRow title={menuText[6][locale]} body={location} />
           </div>
           <div className="flex flex-row space-x-0.5 text-[10px] py-2 items-center">
             <LocaleButton
