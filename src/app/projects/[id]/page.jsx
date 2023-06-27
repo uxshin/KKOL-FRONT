@@ -96,7 +96,7 @@ const ProjectDetail = ({ params }) => {
     <MotionDiv>
       <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
         <BackButton />
-        <div className="w-1/2 pr-4">
+        <div className="w-1/2 pr-4 h-[300px]">
           <DetailRow title={menuText[0][locale]} body={design} />
           <DetailRow title={menuText[1][locale]} body={construction} />
           <DetailRow title={menuText[2][locale]} body={branding} />
@@ -105,7 +105,7 @@ const ProjectDetail = ({ params }) => {
           <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
           <DetailRow title={menuText[6][locale]} body={location} />
         </div>
-        <div className="flex justify-between items-start mt-[350px] mb-[130px]">
+        <div className="flex justify-between items-start mt-[400px] mb-[30px]">
           <p className="text-[15px] font-bold">{title}</p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
