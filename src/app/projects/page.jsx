@@ -1,5 +1,4 @@
 import MotionDiv from "@/components/MotionDiv";
-import PageWrapper from "@/components/PageWrapper";
 import PostCard from "@/components/PostCard";
 import SideBar from "@/components/SideBar";
 
