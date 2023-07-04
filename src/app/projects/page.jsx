@@ -4,7 +4,7 @@ import SideBar from "@/components/SideBar";
 
 async function getData() {
   const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail`;
-  const res = await fetch(url);
+  const res = await fetch(url, { next: { revalidate: 60 } });
   return res.json();
 }
 
