@@ -6,7 +6,7 @@ const PageWrapper = ({ children, className, onClick }) => {
   return (
     <motion.div
       exit={{ opacity: 0 }}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 1.2 }}
       className={className}

@@ -1,5 +1,4 @@
 import MotionDiv from "@/components/MotionDiv";
-import PageWrapper from "@/components/PageWrapper";
 import SideBar from "@/components/SideBar";
 import React from "react";
 
@@ -7,19 +6,19 @@ const Studio = () => {
   const email = "kkol.studio@gmail.com";
   const mobile = "instagram: @kkol.studio";
   const address = "55-1, Imjeong-ro, Mapo-gu, Seoul, Republic of Korea";
+  const greetingText =
+    "안녕하세요, 꼴스튜디오 일동입니다.\n먼저 저희 스튜디오에 관심을 기울여주셔서 감사드립니다.";
   const description =
-    "꼴 스튜디오는 공상가들의 집단입니다. 우리는 개인과 공간을 연결하여 공상하고, 하나의 꼴로 구현합니다. 머무는 사람은 공간의 꼴을 정의하고, 그 공간의 꼴은 머무는 사람의 모습을 다시 확장합니다. 우리는 개인과 공간을 공상하여 꼴을 만듭니다.";
-  const description2 =
-    "공상가  1) 共想家 함께 고민하는 사람   2) 空想家 현실적이지 않은 것을 상상하는 사람";
+    "저희는 2021년 7월, 업태와 규모로 프로젝트의 경중을 구분 짓지 않고 좋은 의도와 이야기를 담은 공간을 만들고자 설립된 공간디자인 스튜디오입니다.\n아뜰리에의 형식을 추구하며 공간, 가구, 조명, 오브제 등 다양한 디자인 영역의 프로젝트를 진행하고 있습니다.";
 
   return (
     <MotionDiv>
       <SideBar />
-      <div className="sm:hidden absolute top-1/2 p-1.5">
-        <p className="text-[10px] mb-2">{description}</p>
-        <p className="text-[8px]">{description2}</p>
+      <div className="absolute top-1/2 pt-[50px] left-10 mb-[145px]">
+        <p className="text-[15px] mb-6 whitespace-pre-line">{greetingText}</p>
+        <p className="text-[15px] mb-6 whitespace-pre-line">{description}</p>
       </div>
-      <div className="absolute bottom-[83px] px-1.5 sm:px-0 left-0 sm:left-10 z-50 text-[10px] sm:text-[13px] leading-4 sm:leading-7">
+      <div className="absolute bottom-[83px] px-1.5 sm:px-0 left-0 sm:left-10 z-50 text-[13px] leading-4 sm:leading-7">
         <p>{email}</p>
         <p>{mobile}</p>
         <p>{address}</p>

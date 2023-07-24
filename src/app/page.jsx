@@ -25,19 +25,20 @@ const Home = () => {
     router.push("/projects");
   }
   const grettTxt1 =
-    "꼴 스튜디오는 공상가들의 집단입니다. 우리는 개인과 공간을 연결하여 공상하고, 하나의 꼴로 구현합니다. 머무는 사람은 공간의 꼴을 정의하고, 그 공간의 꼴은 머무는 사람의 모습을 다시 확장합니다. 우리는 개인과 공간을 공상하여 꼴을 만듭니다.";
-  const greetTxt2 =
-    "공상가  1) 共想家 함께 고민하는 사람   2) 空想家 현실적이지 않은 것을 상상하는 사람";
+    "우리 모두는 저마다의 꼴을 지니고 살아갑니다.\n '꼴'은 외적인 모양새를 나타낼 수도, 인간의 특정 행태를 표현하고\n 나아가 눈에 보이는 것을 넘어 정서적인 부분까지 은유적으로 담아내기도 합니다.\n 저희는 그런 상상의 꼴을 발견하고 연결하며 정의하는 일을 돕습니다. ";
+  const greetTxt2 = "당신의 꼴은 어떤 꼴인가요?";
   return (
     <>
       <PageWrapper
-        className="hidden sm:flex absolute top-0 left-0 w-full h-screen bg-white z-50 px-10 py-11  flex-col justify-between hover:cursor-pointer"
+        className="hidden sm:flex absolute top-0 left-0 w-full h-screen bg-white z-50 px-10 py-11 flex-col justify-between hover:cursor-pointer"
         onClick={onTap}
       >
         <BrandLogo canMove={false} />
         <div className="absolute inset-x-10 bottom-1/4">
-          <p className="w-[600px] mb-[57px] text-[15px]">{grettTxt1}</p>
-          <p className="text-[13px]">{greetTxt2}</p>
+          <p className="w-[600px] mb-5 text-[15px] whitespace-pre-line">
+            {grettTxt1}
+          </p>
+          <p className="text-[15px]">{greetTxt2}</p>
         </div>
       </PageWrapper>
     </>
