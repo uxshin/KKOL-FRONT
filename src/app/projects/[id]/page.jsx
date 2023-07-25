@@ -96,16 +96,7 @@ const ProjectDetail = ({ params }) => {
     <MotionDiv>
       <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
         <BackButton />
-        <div className="w-1/2 pr-4 h-[300px]">
-          <DetailRow title={menuText[0][locale]} body={design} />
-          <DetailRow title={menuText[1][locale]} body={construction} />
-          <DetailRow title={menuText[2][locale]} body={branding} />
-          <DetailRow title={menuText[3][locale]} body={photo} />
-          <DetailRow title={menuText[4][locale]} body={client} />
-          <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
-          <DetailRow title={menuText[6][locale]} body={location} />
-        </div>
-        <div className="flex justify-between items-start mt-[400px] mb-[30px]">
+        <div className="flex justify-between items-start mt-10 mb-[30px]">
           <p className="text-[15px] font-bold">{title}</p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
@@ -123,10 +114,40 @@ const ProjectDetail = ({ params }) => {
             />
           </div>
         </div>
-        <p className="text-[15px] pb-10 whitespace-pre-line">{content}</p>
+        <div className="w-1/2 pr-4 h-[300px]">
+          <DetailRow title={menuText[0][locale]} body={design} />
+          <DetailRow title={menuText[1][locale]} body={construction} />
+          <DetailRow title={menuText[2][locale]} body={branding} />
+          <DetailRow title={menuText[3][locale]} body={photo} />
+          <DetailRow title={menuText[4][locale]} body={client} />
+          <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
+          <DetailRow title={menuText[6][locale]} body={location} />
+        </div>
+        {/* <div className="flex justify-between items-start mt-[400px] mb-[30px]">
+          <p className="text-[15px] font-bold">{title}</p>
+          <div className="flex flex-row space-x-0.5 text-[10px] items-center">
+            <LocaleButton
+              locale={locale}
+              title={title}
+              text={`KR`}
+              isSelected={locale == "ko"}
+            />
+            <p className="text-[15px]">/</p>
+            <LocaleButton
+              locale={locale}
+              title={title}
+              text={`EN`}
+              isSelected={locale == "en"}
+            />
+          </div>
+        </div> */}
+        <p className="text-[15px] pb-10 whitespace-pre-line mt-[400px]">
+          {content}
+        </p>
       </div>
 
-      <div className="sm:w-2/3 w-full h-[250px] sm:h-screen absolute top-[60px] sm:top-0 sm:right-0 px-1.5 sm:px-0">
+      {/* // Mobile */}
+      <div className="sm:w-2/3 w-full h-[250px] sm:h-screen absolute top-[60px] sm:top-0 sm:right-0 ">
         <Carousel
           className=" text-white"
           navigation={({ setActiveIndex, activeIndex, length }) => <div></div>}
@@ -174,9 +195,9 @@ const ProjectDetail = ({ params }) => {
 
       <div className="sm:hidden flex flex-col w-full pb-10 no-scrollbar">
         <SideBar postList={postList} />
-        <div className="mt-[280px] px-1.5 flex flex-col">
-          <p className="text-[12px]">{title}</p>
-          <div className="w-1/3 self-end text-[8px] py-9">
+        <div className="mt-[280px] flex flex-col px-[18px]">
+          <p className="text-[14px] mt-1">{title}</p>
+          <div className="w-1/3 text-[10px] py-5 mb-[56px]">
             <DetailRow title={menuText[0][locale]} body={design} />
             <DetailRow title={menuText[1][locale]} body={construction} />
             <DetailRow title={menuText[2][locale]} body={branding} />
@@ -185,7 +206,7 @@ const ProjectDetail = ({ params }) => {
             <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
             <DetailRow title={menuText[6][locale]} body={location} />
           </div>
-          <div className="flex flex-row space-x-0.5 text-[10px] py-2 items-center">
+          <div className="flex flex-row space-x-0.5 text-[14px] py-2 items-center self-end">
             <LocaleButton
               locale={locale}
               title={title}
@@ -200,7 +221,7 @@ const ProjectDetail = ({ params }) => {
               isSelected={locale == "en"}
             />
           </div>
-          <p className="text-[10px] pb-10 whitespace-pre-line">{content}</p>
+          <p className="text-[14px] pb-10 whitespace-pre-line">{content}</p>
           <p
             className="text-[10px] self-end hover:cursor-pointer "
             onClick={goToTop}

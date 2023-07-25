@@ -14,11 +14,15 @@ const Studio = () => {
   return (
     <MotionDiv>
       <SideBar />
-      <div className="absolute top-1/2 pt-[50px] left-10 mb-[145px]">
-        <p className="text-[15px] mb-6 whitespace-pre-line">{greetingText}</p>
-        <p className="text-[15px] mb-6 whitespace-pre-line">{description}</p>
+      <div className="absolute top-1/2 pt-[50px] left-[18px] sm:left-10 mb-[145px]">
+        <p className="text-[14px] sm:text-[15px] mb-6 whitespace-pre-line">
+          {greetingText}
+        </p>
+        <p className="text-[14px] sm:text-[15px] mb-6 whitespace-pre-line">
+          {description}
+        </p>
       </div>
-      <div className="absolute bottom-[83px] px-1.5 sm:px-0 left-0 sm:left-10 z-50 text-[13px] leading-4 sm:leading-7">
+      <div className="text-[14px] sm:text-[13px] absolute bottom-[83px] sm:px-0 left-[18px] sm:left-10 z-50 leading-6 sm:leading-7">
         <p>{email}</p>
         <p>{mobile}</p>
         <p>{address}</p>
