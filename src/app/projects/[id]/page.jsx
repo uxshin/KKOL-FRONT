@@ -9,6 +9,8 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
 import SideBar from "@/components/SideBar";
 import PageWrapper from "@/components/PageWrapper";
 import MotionDiv from "@/components/MotionDiv";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProjectDetail = ({ params }) => {
   async function getPost(id) {
@@ -94,9 +96,9 @@ const ProjectDetail = ({ params }) => {
   return (
     // Desktop
     <MotionDiv>
-      <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar">
+      <div className="fixed bg-white z-10 flex-col w-1/3 px-10 pt-11 hidden sm:flex">
         <BackButton />
-        <div className="flex justify-between items-start mt-10 mb-[30px]">
+        <div className="w-1/2 pr-4 flex justify-between items-start ">
           <p className="text-[15px] font-bold">{title}</p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
@@ -114,6 +116,9 @@ const ProjectDetail = ({ params }) => {
             />
           </div>
         </div>
+      </div>
+
+      <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar mt-[123px]">
         <div className="w-1/2 pr-4 h-[300px]">
           <DetailRow title={menuText[0][locale]} body={design} />
           <DetailRow title={menuText[1][locale]} body={construction} />
