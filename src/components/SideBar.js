@@ -56,7 +56,7 @@ const SideBar = ({ isShow }) => {
     <>
       <div className="w-full px-[18px] py-3 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11">
         <BrandLogo />
-        <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
+        <ul className="flex space-x-2.5 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
           {menuList &&
             menuList.map((m) => {
               if (m.name === "PROJECT") {
@@ -118,7 +118,7 @@ const SideBar = ({ isShow }) => {
           </ul>
         )}
       </div>
-      {isOpen && (
+      {/* {isOpen && (
         <Transition
           show={isOpen}
           enter="transition ease duration-500 transform"
@@ -143,7 +143,7 @@ const SideBar = ({ isShow }) => {
               })}
           </ul>
         </Transition>
-      )}
+      )} */}
       {/* <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <div className="fixed inset-0 overflow-y-auto">
