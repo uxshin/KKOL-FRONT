@@ -56,7 +56,7 @@ const SideBar = ({ isShow }) => {
     <>
       <div className="w-full px-[18px] py-3 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11">
         <BrandLogo />
-        <ul className="flex space-x-2.5 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
+        <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
           {menuList &&
             menuList.map((m) => {
               if (m.name === "PROJECT") {
