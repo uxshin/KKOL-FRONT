@@ -118,7 +118,7 @@ const ProjectDetail = ({ params }) => {
         </div>
       </div>
 
-      <div className="hidden sm:inline w-1/3 fixed h-screen px-10 py-11 overflow-y-scroll no-scrollbar mt-[123px]">
+      <div className="hidden sm:inline w-1/3 fixed h-screen px-10 pb-11 pt-[167px] overflow-y-scroll no-scrollbar">
         <div className="w-1/2 pr-4 h-[300px]">
           <DetailRow title={menuText[0][locale]} body={design} />
           <DetailRow title={menuText[1][locale]} body={construction} />
