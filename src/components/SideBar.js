@@ -8,7 +8,7 @@ import { Transition } from "@headlessui/react";
 
 const SideBar = ({ isShow }) => {
   async function getData() {
-    const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail`;
+    const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=publishedAt:desc`;
     const res = await fetch(url);
     return res.json();
   }

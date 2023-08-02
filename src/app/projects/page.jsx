@@ -3,7 +3,7 @@ import PostCard from "@/components/PostCard";
 import SideBar from "@/components/SideBar";
 
 async function getData() {
-  const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=createdAt:desc`;
+  const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=publishedAt:desc`;
   const res = await fetch(url, { next: { revalidate: 30 } });
   return res.json();
 }
