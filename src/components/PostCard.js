@@ -9,7 +9,6 @@ const PostCard = ({ post }) => {
     setHeight(window.innerHeight);
 
     const onResize = () => {
-      console.log(window.innerHeight);
       setHeight(window.innerHeight);
     };
     window.addEventListener("resize", onResize);

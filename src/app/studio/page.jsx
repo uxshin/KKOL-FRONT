@@ -22,7 +22,8 @@ const Studio = () => {
         <p className="text-[14px] sm:text-[15px] mb-6 whitespace-pre-line">
           {description}
         </p>
-        <div className="text-[14px] sm:text-[13px] absolute bottom-[83px] sm:px-0 left-[18px] sm:left-10 z-50 leading-6 sm:leading-7">
+        <div className="h-[100px] sm:h-[200px]"></div>
+        <div className="text-[14px] sm:text-[13px] leading-6 sm:leading-7">
           <p>{email}</p>
           <p>{mobile}</p>
           <p>{address}</p>
