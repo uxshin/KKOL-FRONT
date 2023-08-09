@@ -14,6 +14,15 @@ const PostCard = ({ post }) => {
     };
     window.addEventListener("resize", onResize);
   }, []);
+  useEffect(() => {
+    const handleContextmenu = (e) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextmenu);
+    return function cleanup() {
+      document.removeEventListener("contextmenu", handleContextmenu);
+    };
+  }, []);
   const bHeight = (kHeight * 0.93 - 10) / 3;
   const { title, subTitle, thumbnail, id } = post;
   const { url, name, width, height } = thumbnail;

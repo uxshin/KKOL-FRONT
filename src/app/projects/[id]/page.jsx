@@ -38,6 +38,16 @@ const ProjectDetail = ({ params }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    const handleContextmenu = (e) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextmenu);
+    return function cleanup() {
+      document.removeEventListener("contextmenu", handleContextmenu);
+    };
+  }, []);
+
   if (!post) {
     return <div></div>;
   }
