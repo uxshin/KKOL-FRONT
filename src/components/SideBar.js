@@ -4,7 +4,6 @@ import BrandLogo from "@/components/BrandLogo";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Transition } from "@headlessui/react";
 
 const SideBar = ({ isShow }) => {
   async function getData() {
@@ -51,10 +50,10 @@ const SideBar = ({ isShow }) => {
       name: "STUDIO",
       route: "/studio",
     },
-    {
-      name: "PEOPLE",
-      route: "/people",
-    },
+    // {
+    //   name: "PEOPLE",
+    //   route: "/people",
+    // },
   ];
   return (
     <>
@@ -122,65 +121,6 @@ const SideBar = ({ isShow }) => {
           </ul>
         )}
       </div>
-      {/* {isOpen && (
-        <Transition
-          show={isOpen}
-          enter="transition ease duration-500 transform"
-          enterFrom="opacity-0 -translate-y-12"
-          enterTo="opacity-100 translate-y-0"
-          leave="transition ease duration-300 transform"
-          leaveFrom="opacity-100 translate-y-0"
-          leaveTo="opacity-0 -translate-y-12"
-        >
-          <ul className="absolute w-full h-screen top-10 sm:hidden bg-white py-8 px-1.5 z-10">
-            {postList &&
-              postList.map((p) => {
-                return (
-                  <p
-                    onClick={() => goToProject(p.id)}
-                    key={p.id}
-                    className="text-[12px] leading-[18px] hover:cursor-pointer"
-                  >
-                    {p.title}
-                  </p>
-                );
-              })}
-          </ul>
-        </Transition>
-      )} */}
-      {/* <Transition appear show={isOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
-          <div className="fixed inset-0 overflow-y-auto">
-            <div className="flex h-full items-center justify-center text-center">
-              <Transition.Child
-                as={Fragment}
-                enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
-                enterTo="opacity-100 scale-100"
-                leave="ease-in duration-200"
-                leaveFrom="opacity-100 scale-100"
-                leaveTo="opacity-0 scale-95"
-              >
-                <Dialog.Panel className="absolute w-full h-full mt-[100px] transform overflow-hidden bg-white text-left align-middle shadow-xl transition-all">
-                  <ul className="">
-                    {postList &&
-                      postList.map((p) => {
-                        return (
-                          <p
-                            key={p.id}
-                            className="text-[13px] leading-6 hover:cursor-pointer"
-                          >
-                            {p.title}
-                          </p>
-                        );
-                      })}
-                  </ul>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </Dialog>
-      </Transition> */}
     </>
   );
 };
