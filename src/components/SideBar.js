@@ -8,7 +8,7 @@ import { Transition } from "@headlessui/react";
 
 const SideBar = ({ isShow }) => {
   async function getData() {
-    const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail`;
+    const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=publishedAt:desc`;
     const res = await fetch(url);
     return res.json();
   }
@@ -27,6 +27,9 @@ const SideBar = ({ isShow }) => {
 
   function openModal() {
     setIsOpen(true);
+  }
+  function goToMain() {
+    router.push("/projects");
   }
   function handleModel() {
     if (isOpen) {
@@ -55,7 +58,7 @@ const SideBar = ({ isShow }) => {
   ];
   return (
     <>
-      <div className="w-full px-1.5 py-2 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11">
+      <div className="w-full px-[18px] py-3 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11">
         <BrandLogo />
         <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
           {menuList &&
@@ -64,7 +67,7 @@ const SideBar = ({ isShow }) => {
                 return (
                   <>
                     <li
-                      onClick={handleModel}
+                      onClick={goToMain}
                       className={
                         m.route === pathname
                           ? "sm:hidden underline text-[15px] underline-offset-4 hover:cursor-pointer"
@@ -119,7 +122,7 @@ const SideBar = ({ isShow }) => {
           </ul>
         )}
       </div>
-      {isOpen && (
+      {/* {isOpen && (
         <Transition
           show={isOpen}
           enter="transition ease duration-500 transform"
@@ -144,7 +147,7 @@ const SideBar = ({ isShow }) => {
               })}
           </ul>
         </Transition>
-      )}
+      )} */}
       {/* <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <div className="fixed inset-0 overflow-y-auto">

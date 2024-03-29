@@ -9,7 +9,6 @@ const Home = () => {
   const [width, setWidth] = useState(0);
   useEffect(() => {
     setWidth(window.innerWidth);
-    console.log("height>>" + window.innerHeight);
     if (window.innerWidth < 540) {
       router.push("/projects");
       return;
@@ -25,7 +24,7 @@ const Home = () => {
     router.push("/projects");
   }
   const grettTxt1 =
-    "우리 모두는 저마다의 꼴을 지니고 살아갑니다.\n '꼴'은 외적인 모양새를 나타낼 수도, 인간의 특정 행태를 표현하고\n 나아가 눈에 보이는 것을 넘어 정서적인 부분까지 은유적으로 담아내기도 합니다.\n 저희는 그런 상상의 꼴을 발견하고 연결하며 정의하는 일을 돕습니다. ";
+    "우리 모두는 저마다의 꼴을 지니고 살아갑니다.\n'꼴'은 외적인 모양새를 나타내는 동시에 인간의 행태를 표현하고\n나아가 정서적인 부분까지 은유적으로 담아내기도 합니다.\n저희는 그런 상상의 꼴을 발견하고 연결하며 정의하는 일을 돕습니다.";
   const greetTxt2 = "당신의 꼴은 어떤 꼴인가요?";
   return (
     <>

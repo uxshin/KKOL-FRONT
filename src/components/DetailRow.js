@@ -1,5 +1,3 @@
-import React from "react";
-
 // 바디값이 널일때를 체크 합니다.
 function bodyNullCheck(body) {
   if (body === null || body === "null ㎡") {
