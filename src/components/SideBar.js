@@ -48,6 +48,10 @@ const SideBar = ({ isShow }) => {
       name: "STUDIO",
       route: "/studio",
     },
+    {
+      name: "PEOPLE",
+      route: "/people",
+    },
   ];
   return (
     <>
