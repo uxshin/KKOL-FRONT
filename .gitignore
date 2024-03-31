@@ -34,3 +34,7 @@ yarn-error.log*
 
 
 .package-lock.json
+
+# Ignore sitemap files
+/public/sitemap*.xml
+/public/robots.txt

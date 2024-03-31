@@ -1,6 +1,7 @@
 import MotionDiv from "@/components/MotionDiv";
 import SideBar from "@/components/SideBar";
-import React from "react";
+import { NavigationLink } from "@/components/links";
+import StudioTab from "@/components/studio-tab";
 
 const Studio = () => {
   const email = "kkol.studio@gmail.com";
@@ -16,6 +17,7 @@ const Studio = () => {
       <SideBar />
       <div className="p-[18px] sm:p-10">
         <div className="h-[200px] sm:h-[400px]"></div>
+        <StudioTab />
         <p className="text-[14px] sm:text-[15px] mb-6 whitespace-pre-line">
           {greetingText}
         </p>

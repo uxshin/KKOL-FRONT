@@ -3,9 +3,30 @@
 import BrandLogo from "@/components/BrandLogo";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+
+const CustomLink = ({ href, ...props }) => {
+  const pathname = usePathname();
+  const isActive = href === pathname;
+
+  return (
+    <NavigationMenu.Link asChild active={isActive}>
+      <Link
+        href={href}
+        className={
+          isActive
+            ? "underline text-[15px] underline-offset-4 hover:cursor-pointer"
+            : "text-[15px] hover:cursor-pointer"
+        }
+        {...props}
+      />
+    </NavigationMenu.Link>
+  );
+};
 
 const SideBar = ({ isShow }) => {
+  const ref = useRef();
   async function getData() {
     const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=publishedAt:desc`;
     const res = await fetch(url);
@@ -40,7 +61,9 @@ const SideBar = ({ isShow }) => {
   function goToProject(id) {
     router.push(`/projects/${id}`);
   }
+
   const pathname = usePathname();
+  const isTrigger = pathname === "/studio" || pathname === "/people";
   const menuList = [
     {
       name: "PROJECT",
@@ -50,60 +73,138 @@ const SideBar = ({ isShow }) => {
       name: "STUDIO",
       route: "/studio",
     },
-    // {
-    //   name: "PEOPLE",
-    //   route: "/people",
-    // },
   ];
+
+  function openTrigger() {}
+  useEffect(() => {
+    // pathname === "/studio" || pathname === "/people"
+    if (pathname === "/studio" || pathname === "/people") {
+      openTrigger();
+    }
+  }, []);
+
   return (
     <>
-      <div className="w-full px-[18px] py-3 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11">
+      <div className="w-full h-auto px-[18px] py-3 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11 bg-transparent">
         <BrandLogo />
-        <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
-          {menuList &&
-            menuList.map((m) => {
-              if (m.name === "PROJECT") {
-                return (
-                  <>
-                    <li
-                      onClick={goToMain}
-                      className={
-                        m.route === pathname
-                          ? "sm:hidden underline text-[15px] underline-offset-4 hover:cursor-pointer"
-                          : "sm:hidden text-[15px] hover:cursor-pointer"
-                      }
-                    >
-                      PROJECTS
-                    </li>
-                    <Link key={m.name} href={m.route}>
-                      <li
-                        className={
-                          m.route === pathname
-                            ? "hidden sm:inline underline text-[15px] underline-offset-4 hover:cursor-pointer"
-                            : "hidden sm:inline text-[15px] hover:cursor-pointer"
-                        }
-                      >
-                        PROJECTS
-                      </li>
-                    </Link>
-                  </>
-                );
-              }
-              return (
-                <Link key={m.name} href={m.route}>
-                  <li
+        {/* PC 용 */}
+        <NavigationMenu.Root className="sm:mt-[37px] text-[13px] sm:visible invisible ">
+          <NavigationMenu.List className="sm:flex-col flex space-x-4 sm:space-x-0 items-start">
+            <NavigationMenu.Item>
+              <CustomLink href="/projects">PROJECTS</CustomLink>
+            </NavigationMenu.Item>
+            <NavigationMenu.Item className="sm:flex sm:items-start sm:space-x-4 space-y-1 sm:space-y-0">
+              {isTrigger ? (
+                <NavigationMenu.Item className="flex">
+                  <p className="underline text-[15px] underline-offset-4 mr-4">
+                    STUDIO
+                  </p>
+                  <NavigationMenu.Sub className="z-40 bg-white">
+                    <NavigationMenu.List className="px-4">
+                      <NavigationMenu.Item>
+                        <CustomLink href="/studio">INFO</CustomLink>
+                      </NavigationMenu.Item>
+                      <NavigationMenu.Item>
+                        <CustomLink href="/people">PEOPLE</CustomLink>
+                      </NavigationMenu.Item>
+                    </NavigationMenu.List>
+                  </NavigationMenu.Sub>
+                </NavigationMenu.Item>
+              ) : (
+                <>
+                  <NavigationMenu.Trigger
+                    ref={ref}
                     className={
-                      m.route === pathname
+                      pathname === "/studio" || pathname === "/people"
                         ? "underline text-[15px] underline-offset-4 hover:cursor-pointer"
                         : "text-[15px] hover:cursor-pointer"
                     }
                   >
-                    {m.name}
-                  </li>
-                </Link>
-              );
-            })}
-        </ul>
+                    STUDIO
+                  </NavigationMenu.Trigger>
+                  <NavigationMenu.Content>
+                    <NavigationMenu.Sub className="z-40 bg-white">
+                      <NavigationMenu.List className="px-4">
+                        <NavigationMenu.Item>
+                          <CustomLink href="/studio">INFO</CustomLink>
+                        </NavigationMenu.Item>
+                        <NavigationMenu.Item>
+                          <CustomLink href="/people">PEOPLE</CustomLink>
+                        </NavigationMenu.Item>
+                      </NavigationMenu.List>
+                    </NavigationMenu.Sub>
+                  </NavigationMenu.Content>
+                </>
+              )}
+            </NavigationMenu.Item>
+          </NavigationMenu.List>
+        </NavigationMenu.Root>
+
+        {/* // 모바일용 */}
+        <div className="flex space-x-3 sm:invisible visible">
+          <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
+            {menuList &&
+              menuList.map((m) => {
+                if (m.name === "PROJECT") {
+                  return (
+                    <>
+                      <li
+                        onClick={goToMain}
+                        className={
+                          m.route === pathname
+                            ? "sm:hidden underline text-[15px] underline-offset-4 hover:cursor-pointer"
+                            : "sm:hidden text-[15px] hover:cursor-pointer"
+                        }
+                      >
+                        PROJECTS
+                      </li>
+                      <Link key={m.name} href={m.route}>
+                        <li
+                          className={
+                            m.route === pathname
+                              ? "hidden sm:inline underline text-[15px] underline-offset-4 hover:cursor-pointer"
+                              : "hidden sm:inline text-[15px] hover:cursor-pointer"
+                          }
+                        >
+                          PROJECTS
+                        </li>
+                      </Link>
+                    </>
+                  );
+                }
+                if (m.name === "STUDIO") {
+                  return (
+                    <Link key={m.name} href={m.route}>
+                      <li
+                        className={
+                          pathname === "/studio" || pathname === "/people"
+                            ? "underline text-[15px] underline-offset-4 hover:cursor-pointer"
+                            : "text-[15px] hover:cursor-pointer"
+                        }
+                      >
+                        {m.name}
+                      </li>
+                    </Link>
+                  );
+                }
+
+                return (
+                  <Link key={m.name} href={m.route}>
+                    <li
+                      className={
+                        m.route === pathname
+                          ? "underline text-[15px] underline-offset-4 hover:cursor-pointer"
+                          : "text-[15px] hover:cursor-pointer"
+                      }
+                    >
+                      {m.name}
+                    </li>
+                  </Link>
+                );
+              })}
+          </ul>
+        </div>
+
         {isShow && (
           <ul className="absolute bottom-11 hidden sm:inline">
             {postList.length > 0 &&
