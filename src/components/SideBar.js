@@ -75,20 +75,12 @@ const SideBar = ({ isShow }) => {
     },
   ];
 
-  function openTrigger() {}
-  useEffect(() => {
-    // pathname === "/studio" || pathname === "/people"
-    if (pathname === "/studio" || pathname === "/people") {
-      openTrigger();
-    }
-  }, []);
-
   return (
     <>
       <div className="w-full h-auto px-[18px] py-3 flex sm:inline items-center justify-between sm:w-1/4 sm:fixed sm:h-full sm:px-10 sm:py-11 bg-transparent">
         <BrandLogo />
         {/* PC 용 */}
-        <NavigationMenu.Root className="sm:mt-[37px] text-[13px] sm:visible invisible ">
+        <NavigationMenu.Root className="sm:mt-[37px] text-[13px] sm:visible invisible hidden sm:flex">
           <NavigationMenu.List className="sm:flex-col flex space-x-4 sm:space-x-0 items-start">
             <NavigationMenu.Item>
               <CustomLink href="/projects">PROJECTS</CustomLink>
