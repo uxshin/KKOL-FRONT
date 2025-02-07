@@ -177,7 +177,8 @@ const ProjectDetail = ({ params }) => {
             />
           </div>
         </div> */}
-        <p className="text-[15px] pb-10 whitespace-pre-line mt-[400px]">
+        {/* 2월7일 수정안 400-> 150 */}
+        <p className="text-[15px] pb-10 whitespace-pre-line mt-[150px]">
           {content}
         </p>
       </div>

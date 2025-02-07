@@ -23,9 +23,13 @@ const Home = () => {
   function onTap() {
     router.push("/projects");
   }
-  const grettTxt1 =
-    "우리 모두는 저마다의 꼴을 지니고 살아갑니다.\n'꼴'은 외적인 모양새를 나타내는 동시에 인간의 행태를 표현하고\n나아가 정서적인 부분까지 은유적으로 담아내기도 합니다.\n저희는 그런 상상의 꼴을 발견하고 연결하며 정의하는 일을 돕습니다.";
-  const greetTxt2 = "당신의 꼴은 어떤 꼴인가요?";
+  // const grettTxt1 =
+  //   "우리 모두는 저마다의 꼴을 지니고 살아갑니다.\n'꼴'은 외적인 모양새를 나타내는 동시에 인간의 행태를 표현하고\n나아가 정서적인 부분까지 은유적으로 담아내기도 합니다.\n저희는 그런 상상의 꼴을 발견하고 연결하며 정의하는 일을 돕습니다.";
+  // const greetTxt2 = "당신의 꼴은 어떤 꼴인가요?";
+  const greetTxt1 =
+    "우리 모두는 저마다의 꼴을 지니고 살아갑니다\n'꼴'은 외적인 모양새를 나타내는 동시에 인간의 행태를 표현하고 나아가 정서적인 부분까지 은유적으로 담아내기도 합니다.";
+
+  const greetTxt2 = "당신과 당신의 공간은 어떤 꼴인가요?";
   return (
     <>
       <PageWrapper
@@ -35,7 +39,7 @@ const Home = () => {
         <BrandLogo canMove={false} />
         <div className="absolute inset-x-10 bottom-1/4">
           <p className="w-[600px] mb-5 text-[15px] whitespace-pre-line">
-            {grettTxt1}
+            {greetTxt1}
           </p>
           <p className="text-[15px]">{greetTxt2}</p>
         </div>
