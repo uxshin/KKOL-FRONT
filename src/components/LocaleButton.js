@@ -6,12 +6,13 @@ const LocaleButton = ({ title, locale, text, isSelected }) => {
   const router = useRouter();
   async function handleClick() {
     const urls = {
-      ko: `https://cms-kkolstudio-w0mq.onrender.com/api/posts?locale=en`,
-      en: `https://cms-kkolstudio-w0mq.onrender.com/api/posts`,
+      ko: `https://cms-kkolstudio-w0mq.onrender.com/api/posts?locale=en&pagination[pageSize]=999`,
+      en: `https://cms-kkolstudio-w0mq.onrender.com/api/posts?pagination[pageSize]=999`,
     };
     const rawUrl = urls[locale];
     const res = await fetch(rawUrl);
     const { data } = await res.json();
+
     const target = data.find((p) => p.title === title);
     if (target) {
       router.push(`/projects/${target.id}`);
