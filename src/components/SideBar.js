@@ -27,11 +27,15 @@ const CustomLink = ({ href, ...props }) => {
 
 const SideBar = ({ isShow }) => {
   const ref = useRef();
+  const pathname = usePathname();
+  const router = useRouter();
+
   async function getData() {
     const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=publishedAt:desc`;
     const res = await fetch(url);
     return res.json();
   }
+
   const [postList, setPostList] = useState([]);
   useEffect(() => {
     getData().then((res) => {
@@ -39,7 +43,6 @@ const SideBar = ({ isShow }) => {
     });
   }, []);
   let [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
 
   function closeModal() {
     setIsOpen(false);
@@ -62,7 +65,6 @@ const SideBar = ({ isShow }) => {
     router.push(`/projects/${id}`);
   }
 
-  const pathname = usePathname();
   const isTrigger = pathname === "/studio" || pathname === "/people";
   const menuList = [
     {
@@ -133,7 +135,7 @@ const SideBar = ({ isShow }) => {
         </NavigationMenu.Root>
 
         {/* // 모바일용 */}
-        <div className="flex space-x-3 sm:invisible visible">
+        <div className={`flex space-x-3 sm:invisible`}>
           <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
             {menuList &&
               menuList.map((m) => {

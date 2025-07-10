@@ -12,7 +12,7 @@ const DetailRow = ({ title, body }) => {
     // if body is empty, don't render
     <>
       {!bodyNullCheck(body) && (
-        <div className="flex justify-between text-[8px] sm:text-[13px] leading-[18px]">
+        <div className="flex justify-between text-[13px] leading-[18px]">
           <p>{title}</p>
           <p>{body}</p>
         </div>
