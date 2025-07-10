@@ -147,8 +147,10 @@ const ProjectDetail = ({ params }) => {
     <MotionDiv>
       <div className="fixed bg-white z-10 flex-col w-1/3 px-10 pt-11 hidden sm:flex">
         <BackButton className="mb-9" />
-        <div className="w-full pr-4 flex justify-between items-start lg:w-1/2">
-          <p className="text-[15px] font-bold">{title}</p>
+        <div className="w-full pr-4 flex justify-between items-start 2xl:w-1/2">
+          <p className="text-[15px] font-bold truncate whitespace-nowrap overflow-hidden">
+            {title}
+          </p>
           <div className="flex flex-row space-x-0.5 text-[10px] items-center">
             <LocaleButton
               locale={locale}
@@ -219,7 +221,7 @@ const ProjectDetail = ({ params }) => {
       </div>
 
       <div className="hidden sm:inline w-1/3 fixed h-screen px-10 pb-11 pt-[167px] overflow-y-scroll no-scrollbar">
-        <div className="lg:w-1/2 pr-4 h-[300px] w-full">
+        <div className="2xl:w-1/2 pr-4 h-[300px] w-full">
           <DetailRow title={menuText[0][locale]} body={design} />
           <DetailRow title={menuText[1][locale]} body={construction} />
           <DetailRow title={menuText[2][locale]} body={branding} />
@@ -258,13 +260,30 @@ const ProjectDetail = ({ params }) => {
         {/* 스크롤 했을때 픽스드 되는 거 추가 */}
         {/* 스크롤 내릴 때 부드러운 애니메이션 효과를 추가  */}
         <div
-          className={`fixed top-0 left-0 right-0 z-50 px-[18px] py-3 bg-white h-[72px] transition-all duration-300 ${
+          className={`fixed top-0 left-0 right-0 z-50 px-[13px] py-3 bg-white h-[81px] transition-all duration-300 ${
             isScroll ? "shadow-xs" : "shadow-none"
           }`}
         >
           <BackButton />
-          <div className="w-1/3 flex items-center justify-between">
-            <p className="text-[15px]">{title}</p>
+          {/* 
+            Tailwind만 사용, title 길이에 따라 w-3/5 또는 w-4/5 적용.
+            만약 CSS 속성(스타일)을 써야 한다면, style prop을 직접 사용 가능.
+            아래는 Tailwind만 사용한 예시와, style prop을 활용한 예시 둘 다 제시.
+          */}
+
+          {/* Tailwind만 사용하는 방법 */}
+          <div
+            className={`${
+              title && title.length >= 39
+                ? "w-full"
+                : title && title.length < 22
+                ? "w-3/5"
+                : "w-4/5"
+            } flex items-center justify-between px-[5px] mt-2.5 gap-2 transition-all duration-300 max-w-full min-w-[180px]`}
+          >
+            <p className="text-[15px] truncate whitespace-nowrap overflow-hidden max-w-full">
+              {title}
+            </p>
             <div
               className={`flex flex-row space-x-0.5 text-[14px] py-2 items-center self-end ${
                 !isScroll ? "opacity-100" : "opacity-0"
@@ -287,8 +306,16 @@ const ProjectDetail = ({ params }) => {
           </div>
         </div>
 
-        <div className={`flex flex-col px-[18px] mt-[80px]`}>
-          <div className="w-1/3 text-[10px] py-0 mb-[56px]">
+        <div className={`flex flex-col px-[18px] mt-[90px]`}>
+          <div
+            className={`w-1/3 text-[10px] py-0 mb-[120px] ${
+              title && title.length >= 39
+                ? "w-full"
+                : title && title.length < 22
+                ? "w-3/5"
+                : "w-4/5"
+            }`}
+          >
             <DetailRow title={menuText[0][locale]} body={design} />
             <DetailRow title={menuText[1][locale]} body={construction} />
             <DetailRow title={menuText[2][locale]} body={branding} />
@@ -302,7 +329,7 @@ const ProjectDetail = ({ params }) => {
           {/* // Adding Mobile Image ...  */}
           {/* 모바일 영역에서는 이미지를 쭉 나열합니다. 데스크탑에서는 보이지 않음 */}
           {/* 이미지 클릭 시에 확대되는 모달창 띄우기 */}
-          <div className="flex flex-col mb-4">
+          <div className="flex flex-col mb-4 gap-y-1">
             {images.map((i, index) => {
               return (
                 <img

@@ -200,17 +200,17 @@ const SideBar = ({ isShow }) => {
         </div>
 
         {isShow && (
-          <ul className="absolute bottom-11 hidden sm:inline">
+          <ul className="absolute bottom-11 hidden sm:inline max-h-[720px] overflow-y-auto pr-2 no-scrollbar">
             {postList.length > 0 &&
               postList.map((p) => {
                 return (
-                  <p
+                  <li
                     onClick={() => goToProject(p.id)}
                     key={p.id}
                     className="text-[13px] leading-6 hover:cursor-pointer"
                   >
                     {p.title}
-                  </p>
+                  </li>
                 );
               })}
           </ul>
