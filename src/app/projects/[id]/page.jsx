@@ -57,7 +57,7 @@ const ProjectDetail = ({ params }) => {
   const [postList, setPostList] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [isScroll, setIsScroll] = useState(false);
-  const fixedHeaderHeight = 72;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScroll(window.scrollY > 0);
@@ -253,12 +253,12 @@ const ProjectDetail = ({ params }) => {
       </div>
 
       {/* 모바일 영역  */}
-      <div className="sm:hidden flex flex-col w-full pb-10 no-scrollbar">
+      <div className="sm:hidden w-full pb-10 no-scrollbar">
         {/* <SideBar postList={postList} /> */}
         {/* 스크롤 했을때 픽스드 되는 거 추가 */}
         {/* 스크롤 내릴 때 부드러운 애니메이션 효과를 추가  */}
         <div
-          className={`fixed top-0 left-0 right-0 z-50 px-[18px] py-3 bg-white h-[${fixedHeaderHeight}px] transition-all duration-300 ${
+          className={`fixed top-0 left-0 right-0 z-50 px-[18px] py-3 bg-white h-[72px] transition-all duration-300 ${
             isScroll ? "shadow-xs" : "shadow-none"
           }`}
         >
@@ -286,12 +286,8 @@ const ProjectDetail = ({ params }) => {
             </div>
           </div>
         </div>
-        {/* <div className="px-[18px] py-3">
-          <BackButton />
-        </div> */}
-        <div
-          className={`flex flex-col px-[18px] mt-[${fixedHeaderHeight + 5}px]`}
-        >
+
+        <div className={`flex flex-col px-[18px] mt-[80px]`}>
           <div className="w-1/3 text-[10px] py-0 mb-[56px]">
             <DetailRow title={menuText[0][locale]} body={design} />
             <DetailRow title={menuText[1][locale]} body={construction} />
