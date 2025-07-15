@@ -136,7 +136,7 @@ const SideBar = ({ isShow }) => {
 
         {/* // 모바일용 */}
         <div className={`flex space-x-3 sm:invisible`}>
-          <ul className="flex space-x-4 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
+          <ul className="flex space-x-2 sm:space-x-0 text-[13px] sm:mt-[37px] sm:flex-col">
             {menuList &&
               menuList.map((m) => {
                 if (m.name === "PROJECT") {
@@ -146,8 +146,8 @@ const SideBar = ({ isShow }) => {
                         onClick={goToMain}
                         className={
                           m.route === pathname
-                            ? "sm:hidden underline text-[15px] underline-offset-4 hover:cursor-pointer"
-                            : "sm:hidden text-[15px] hover:cursor-pointer"
+                            ? "sm:hidden underline text-[13px] underline-offset-4 hover:cursor-pointer"
+                            : "sm:hidden text-[13px] hover:cursor-pointer"
                         }
                       >
                         PROJECTS
@@ -156,8 +156,8 @@ const SideBar = ({ isShow }) => {
                         <li
                           className={
                             m.route === pathname
-                              ? "hidden sm:inline underline text-[15px] underline-offset-4 hover:cursor-pointer"
-                              : "hidden sm:inline text-[15px] hover:cursor-pointer"
+                              ? "hidden sm:inline underline text-[13px] underline-offset-4 hover:cursor-pointer"
+                              : "hidden sm:inline text-[13px] hover:cursor-pointer"
                           }
                         >
                           PROJECTS
@@ -172,8 +172,8 @@ const SideBar = ({ isShow }) => {
                       <li
                         className={
                           pathname === "/studio" || pathname === "/people"
-                            ? "underline text-[15px] underline-offset-4 hover:cursor-pointer"
-                            : "text-[15px] hover:cursor-pointer"
+                            ? "underline text-[13px] underline-offset-4 hover:cursor-pointer"
+                            : "text-[13px] hover:cursor-pointer"
                         }
                       >
                         {m.name}
@@ -187,8 +187,8 @@ const SideBar = ({ isShow }) => {
                     <li
                       className={
                         m.route === pathname
-                          ? "underline text-[15px] underline-offset-4 hover:cursor-pointer"
-                          : "text-[15px] hover:cursor-pointer"
+                          ? "underline text-[13px] underline-offset-4 hover:cursor-pointer"
+                          : "text-[13px] hover:cursor-pointer"
                       }
                     >
                       {m.name}

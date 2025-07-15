@@ -17,13 +17,13 @@ function PeopleSection({ peopleList, algin, title }) {
   const arr = sortedPeople(peopleList);
   return (
     <div className={layoutClassName}>
-      <h1 className="text-[15px] mb-[15px]">{title}</h1>
+      {/* <h1 className="text-[15px] mb-[15px]">{title}</h1> */}
       {arr.length === 0 && <p></p>}
       {arr &&
         arr.map((person, index) => (
           <div key={index} className="mb-2.5">
-            <p className=""> {person.name}</p>
-            <p>{person.email}</p>
+            <p className="leading-5"> {person.name}</p>
+            <p className="text-[13px] leading-5">{person.email}</p>
           </div>
         ))}
     </div>
@@ -47,12 +47,12 @@ const People = async () => {
     <MotionDiv>
       <SideBar />
       <div className="w-full flex flex-col p-4 ">
-        <div className="h-[200px] sm:h-[400px]"></div>
+        <div className="h-[100px] sm:h-[400px]"></div>
         <StudioTab />
         <div className="w-full sm:w-4/5 flex mt-4 sm:flex-row flex-col space-y-4 sm:space-y-0 sm:justify-end sm:space-x-[80px]">
           <PeopleSection
             peopleList={currentList}
-            algin="right"
+            algin="left"
             title={"CURRENT"}
           />
           {/* former area */}

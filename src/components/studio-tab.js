@@ -17,7 +17,7 @@ export const StudioTab = () => {
   return (
     <>
       {/* only show at mobile page , tabs two */}
-      <div className="sm:hidden mb-4 sm:mb-0">
+      <div className="sm:hidden mb-[50px] sm:mb-0">
         <div className="flex space-x-3">
           {tabs.map((tab, index) => (
             <NavigationLink key={index} href={tab.href}>

@@ -5,7 +5,11 @@ import DetailRow from "@/components/DetailRow";
 import LocaleButton from "@/components/LocaleButton";
 import { useEffect, useState, useRef } from "react";
 import { Carousel, menu } from "@material-tailwind/react";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/24/outline";
+import {
+  ChevronRightIcon,
+  ChevronLeftIcon,
+  ChevronUpIcon,
+} from "@heroicons/react/24/outline";
 import SideBar from "@/components/SideBar";
 import PageWrapper from "@/components/PageWrapper";
 import MotionDiv from "@/components/MotionDiv";
@@ -249,13 +253,13 @@ const ProjectDetail = ({ params }) => {
           </div>
         </div> */}
         {/* 2월7일 수정안 400-> 150 */}
-        <p className="text-[15px] pb-10 whitespace-pre-line mt-[150px]">
+        <p className="text-[15px] pb-0 whitespace-pre-line mt-[150px]">
           {content}
         </p>
       </div>
 
       {/* 모바일 영역  */}
-      <div className="sm:hidden w-full pb-10 no-scrollbar">
+      <div className="sm:hidden w-full mb-10 no-scrollbar">
         {/* <SideBar postList={postList} /> */}
         {/* 스크롤 했을때 픽스드 되는 거 추가 */}
         {/* 스크롤 내릴 때 부드러운 애니메이션 효과를 추가  */}
@@ -324,7 +328,6 @@ const ProjectDetail = ({ params }) => {
             <DetailRow title={menuText[5][locale]} body={area + " ㎡"} />
             <DetailRow title={menuText[6][locale]} body={location} />
           </div>
-
           <p className="text-[14px] pb-10 whitespace-pre-line">{content}</p>
           {/* // Adding Mobile Image ...  */}
           {/* 모바일 영역에서는 이미지를 쭉 나열합니다. 데스크탑에서는 보이지 않음 */}
@@ -341,12 +344,27 @@ const ProjectDetail = ({ params }) => {
               );
             })}
           </div>
-          <p
-            className="text-[10px] self-end hover:cursor-pointer "
+
+          {/* <div className="bg-white w-full h-[50px] fixed bottom-0 flex justify-end items-center">
+            <ChevronUpIcon
+              className="w-4 h-4 text-[10px] self-end hover:cursor-pointer"
+              onClick={goToTop}
+            />
+          </div> */}
+        </div>
+      </div>
+      {/* // Fixed bottom 영역생성  */}
+      {/* isScrolled 일때만 보여지게, 변환시 애니메이션 자연스럽게 추가  */}
+      <div
+        className={`bg-white w-full h-[50px] fixed bottom-[-1px] flex justify-end items-center transition-all duration-300 ${
+          isScroll ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div className="w-full h-[50px] flex justify-end items-center">
+          <ChevronUpIcon
+            className="w-4 h-4 text-[10px] self-end hover:cursor-pointer mr-5 mb-4"
             onClick={goToTop}
-          >
-            TOP
-          </p>
+          />
         </div>
       </div>
     </MotionDiv>
