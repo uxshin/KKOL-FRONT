@@ -57,7 +57,7 @@ const Studio = () => {
         <p className="text-[14px] sm:text-[13px] mb-12 whitespace-pre-line leading-5">
           {paragraph3}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
+        {/* <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
           {paragraph1_en}
         </p>
         <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
@@ -65,7 +65,7 @@ const Studio = () => {
         </p>
         <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
           {paragraph3_en}
-        </p>
+        </p> */}
         {/* 데스크탑 영문 파라그래프  */}
         <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
           {paragraph1_en_desktop}
