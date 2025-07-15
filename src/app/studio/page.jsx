@@ -33,14 +33,22 @@ const Studio = () => {
 
   const paragraph3_en =
     "For those who inhabit our spaces,\nWe continually redefine the balance\nbetween utility and beauty,\nclarity and emotion.";
+  const paragraph1_en_desktop =
+    "KKOL Studio is a collective of spatial designers\ndedicated to creating meaningful spaces.";
 
+  const paragraph2_en_desktop =
+    "Rooted in an atelier-like approach that defies rigid conventions,\nwe imagine and articulate every element that shapes a space.\nFrom the foundations of branding to design development and construction,\nwe engage in every phase as a seamless and integrated process.";
+
+  const paragraph3_en_desktop =
+    "For those who inhabit the spaces we create,\nWe continually redefine the balance\nbetween utility and beauty, clarity and emotion.";
   return (
     <MotionDiv>
       <SideBar />
       <div className="p-[18px] sm:p-10">
         <div className="h-[100px] sm:h-[300px]"></div>
         <StudioTab />
-        <p className="text-[14px] sm:text-[15px] mb-3 whitespace-pre-line leading-5">
+        {/* 데스크탑일때는 \n 을 무시하게 해줘 */}
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:whitespace-normal">
           {paragraph1}
         </p>
         <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5">
@@ -49,15 +57,26 @@ const Studio = () => {
         <p className="text-[14px] sm:text-[13px] mb-12 whitespace-pre-line leading-5">
           {paragraph3}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5">
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
           {paragraph1_en}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5">
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
           {paragraph2_en}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5">
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
           {paragraph3_en}
         </p>
+        {/* 데스크탑 영문 파라그래프  */}
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
+          {paragraph1_en_desktop}
+        </p>
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
+          {paragraph2_en_desktop}
+        </p>
+        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
+          {paragraph3_en_desktop}
+        </p>
+
         <div className="h-[100px] sm:h-[200px]"></div>
         <div className="text-[14px] sm:text-[13px] leading-6 sm:leading-7">
           <p>{email}</p>

@@ -356,17 +356,17 @@ const ProjectDetail = ({ params }) => {
       {/* // Fixed bottom 영역생성  */}
       {/* isScrolled 일때만 보여지게, 변환시 애니메이션 자연스럽게 추가  */}
       <div
-        className={`bg-white w-full h-[50px] fixed bottom-[-1px] flex justify-end items-center transition-all duration-300 ${
+        className={`bg-white w-full h-[60px] pt-5 pb-7 fixed bottom-[-1px] flex justify-end items-center transition-all duration-300 ${
           isScroll ? "opacity-100" : "opacity-0"
         }`}
-      >
-        <div className="w-full h-[50px] flex justify-end items-center">
-          <ChevronUpIcon
-            className="w-4 h-4 text-[10px] self-end hover:cursor-pointer mr-5 mb-4"
-            onClick={goToTop}
-          />
-        </div>
-      </div>
+      />
+      {/* isScrolled 일때만 보여지게, 변환시 애니메이션 자연스럽게 추가  */}
+      <ChevronUpIcon
+        className={`w-5 h-5  self-end hover:cursor-pointer fixed bottom-7 right-6 z-50 transition-all duration-300 ${
+          isScroll ? "opacity-100" : "opacity-0"
+        }`}
+        onClick={goToTop}
+      />
     </MotionDiv>
   );
 };
