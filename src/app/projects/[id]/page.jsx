@@ -184,24 +184,18 @@ const ProjectDetail = ({ params }) => {
           navigation={({ setActiveIndex, activeIndex, length }) => <div></div>}
           prevArrow={({ handlePrev }) => (
             <div
-              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-left opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-left opacity-100"
               onClick={handlePrev}
             >
-              {/* <ChevronLeftIcon
-                strokeWidth={2}
-                className="w-6 h-6 absolute top-2/4 -translate-y-2/4 left-4"
-              /> */}
+              <ChevronLeftIcon className="w-6 h-6 absolute top-2/4 -translate-y-2/4 left-4 text-black" />
             </div>
           )}
           nextArrow={({ handleNext }) => (
             <div
-              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 hover:cursor-right opacity-0 hover:opacity-70"
+              className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 hover:cursor-right opacity-100"
               onClick={handleNext}
             >
-              {/* <ChevronRightIcon
-                strokeWidth={2}
-                className="w-6 h-6 absolute top-2/4 -translate-y-2/4 right-4"
-              /> */}
+              <ChevronRightIcon className="w-6 h-6 absolute top-2/4 -translate-y-2/4 right-4 text-black" />
             </div>
           )}
           slideRef={ref}

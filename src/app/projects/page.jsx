@@ -16,7 +16,7 @@ const Projects = async () => {
         <SideBar isShow={true} />
         <div className="px-[18px] py-6 sm:px-[30px] h-[93%] overflow-y-scroll sm:my-10 w-full sm:w-3/4 absolute right-0 sm:py-0 no-scrollbar">
           {/* <div className={`flex flex-wrap`}> */}
-          <div className="flex flex-col space-y-8 pb-10 sm:pb-0 sm:space-y-0 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-3 sm:gap-2">
+          <div className="flex flex-col space-y-8 pb-10 sm:pb-0 sm:space-y-0 sm:grid md:grid-cols-2 xl:grid-cols-3 3xl:grid-cols-3 sm:gap-1">
             {data &&
               data.map((d) => {
                 return <PostCard post={d} key={d.id} />;

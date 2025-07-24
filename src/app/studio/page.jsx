@@ -20,8 +20,9 @@ const Studio = () => {
     "꼴 스튜디오는 공간에 의미를 부여하는\n디자이너 집단입니다.";
 
   const paragraph2 =
-    "형식에 얽매이지 않는 아뜰리에적 접근을 바탕으로,\n공간을 이루는 모든 요소를 상상하고 구체화하며,\n브랜딩의 기초 단계부터 설계와 식골에 이르기까지\n전 과정을 유기적으로 이어갑니다.";
-
+    "형식에 얽매이지 않는 아뜰리에적 접근을 바탕으로,\n공간을 이루는 모든 요소를 상상하고 구체화하며,";
+  const paragraph2_2 =
+    "브랜딩의 기초 단계부터 설계와 시공에 이르기까지\n전 과정을 유기적으로 이어갑니다.";
   const paragraph3 =
     "공간의 이용자에게 가장 적합한\n기능과 미감, 효율과 여운 사이의 균형을\n매 순간 새롭게 정의합니다.";
 
@@ -34,13 +35,16 @@ const Studio = () => {
   const paragraph3_en =
     "For those who inhabit our spaces,\nWe continually redefine the balance\nbetween utility and beauty,\nclarity and emotion.";
   const paragraph1_en_desktop =
-    "KKOL Studio is a collective of spatial designers\ndedicated to creating meaningful spaces.";
+    "KKOL Studio is a collective of spatial designers dedicated to creating meaningful spaces.";
 
   const paragraph2_en_desktop =
-    "Rooted in an atelier-like approach that defies rigid conventions,\nwe imagine and articulate every element that shapes a space.\nFrom the foundations of branding to design development and construction,\nwe engage in every phase as a seamless and integrated process.";
+    "Rooted in an atelier-like approach, we defy rigid conventions and imagine every element that shapes a space.";
 
   const paragraph3_en_desktop =
-    "For those who inhabit the spaces we create,\nWe continually redefine the balance\nbetween utility and beauty, clarity and emotion.";
+    "From the foundations of branding to design development and construction, we approach every phase as part of a seamless, integrated process.";
+  const paragraph4_en_desktop = "For those who inhabit our spaces we create";
+  const paragraph5_en_desktop =
+    "We continually redefine the balance between utility and beauty, clarity and emotion.";
   return (
     <MotionDiv>
       <SideBar />
@@ -48,13 +52,16 @@ const Studio = () => {
         <div className="h-[100px] sm:h-[300px]"></div>
         <StudioTab />
         {/* 데스크탑일때는 \n 을 무시하게 해줘 */}
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:whitespace-normal">
+        <p className="text-[14px] sm:text-[13px] mb-3 sm:mb-0 whitespace-pre-line leading-5 sm:whitespace-normal">
           {paragraph1}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5">
+        <p className="text-[14px] sm:text-[13px] mb-3 sm:mb-0 whitespace-pre-line leading-5 sm:whitespace-normal">
           {paragraph2}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-12 whitespace-pre-line leading-5">
+        <p className="text-[14px] sm:text-[13px] mb-3 sm:mb-0 whitespace-pre-line leading-5 sm:whitespace-normal">
+          {paragraph2_2}
+        </p>
+        <p className="text-[14px] sm:text-[13px] mb-12 whitespace-pre-line leading-5 sm:whitespace-normal">
           {paragraph3}
         </p>
         {/* <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 sm:hidden">
@@ -67,17 +74,23 @@ const Studio = () => {
           {paragraph3_en}
         </p> */}
         {/* 데스크탑 영문 파라그래프  */}
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
+        <p className="text-[14px] sm:text-[13px] mb-0 whitespace-pre-line leading-5 hidden sm:block">
           {paragraph1_en_desktop}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
+        <p className="text-[14px] sm:text-[13px] mb-0 whitespace-pre-line leading-5 hidden sm:block">
           {paragraph2_en_desktop}
         </p>
-        <p className="text-[14px] sm:text-[13px] mb-3 whitespace-pre-line leading-5 hidden sm:block">
+        <p className="text-[14px] sm:text-[13px] mb-0 whitespace-pre-line leading-5 hidden sm:block">
           {paragraph3_en_desktop}
         </p>
+        <p className="text-[14px] sm:text-[13px] mb-0 whitespace-pre-line leading-5 hidden sm:block">
+          {paragraph4_en_desktop}
+        </p>
+        <p className="text-[14px] sm:text-[13px] mb-0 whitespace-pre-line leading-5 hidden sm:block">
+          {paragraph5_en_desktop}
+        </p>
 
-        <div className="h-[100px] sm:h-[200px]"></div>
+        <div className="h-[80px] sm:h-[200px]"></div>
         <div className="text-[14px] sm:text-[13px] leading-6 sm:leading-7">
           <p>{email}</p>
           <p>{mobile}</p>
