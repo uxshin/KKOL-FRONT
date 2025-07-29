@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 const CustomLink = ({ href, ...props }) => {
   const pathname = usePathname();
@@ -27,6 +28,7 @@ const CustomLink = ({ href, ...props }) => {
 
 const SideBar = ({ isShow }) => {
   const ref = useRef();
+  const ulRef = useRef();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -37,6 +39,8 @@ const SideBar = ({ isShow }) => {
   }
 
   const [postList, setPostList] = useState([]);
+  const [isScrollAtBottom, setIsScrollAtBottom] = useState(true);
+
   useEffect(() => {
     getData().then((res) => {
       setPostList(res.data);
@@ -64,6 +68,39 @@ const SideBar = ({ isShow }) => {
   function goToProject(id) {
     router.push(`/projects/${id}`);
   }
+
+  // 스크롤 위치 확인 함수
+  const checkScrollPosition = () => {
+    if (ulRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = ulRef.current;
+      const isAtBottom = scrollTop + clientHeight >= scrollHeight - 1; // 1px 여유
+      setIsScrollAtBottom(isAtBottom);
+    }
+  };
+
+  // 최하단으로 스크롤하는 함수
+  const scrollToBottom = () => {
+    if (ulRef.current) {
+      ulRef.current.scrollTo({
+        top: ulRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // 스크롤 이벤트 리스너 등록
+  useEffect(() => {
+    const ulElement = ulRef.current;
+    if (ulElement) {
+      ulElement.addEventListener("scroll", checkScrollPosition);
+      // 초기 스크롤 위치 확인
+      checkScrollPosition();
+
+      return () => {
+        ulElement.removeEventListener("scroll", checkScrollPosition);
+      };
+    }
+  }, [postList]); // postList가 변경될 때마다 다시 확인
 
   const isTrigger = pathname === "/studio" || pathname === "/people";
   const menuList = [
@@ -200,20 +237,34 @@ const SideBar = ({ isShow }) => {
         </div>
 
         {isShow && (
-          <ul className="absolute bottom-11 hidden sm:inline max-h-[360px] overflow-y-auto pr-2 no-scrollbar">
-            {postList.length > 0 &&
-              postList.map((p) => {
-                return (
-                  <li
-                    onClick={() => goToProject(p.id)}
-                    key={p.id}
-                    className="text-[13px] leading-6 hover:cursor-pointer"
-                  >
-                    {p.title}
-                  </li>
-                );
-              })}
-          </ul>
+          <div className="absolute bottom-11 flex flex-col">
+            <ul
+              ref={ulRef}
+              className="hidden sm:inline max-h-[336px] overflow-y-auto pr-2 no-scrollbar"
+            >
+              {postList.length > 0 &&
+                postList.map((p) => {
+                  return (
+                    <li
+                      onClick={() => goToProject(p.id)}
+                      key={p.id}
+                      className="text-[13px] leading-6 hover:cursor-pointer"
+                    >
+                      {p.title}
+                    </li>
+                  );
+                })}
+            </ul>
+
+            <ChevronDownIcon
+              className={`w-5 h-5 cursor-pointer hover:opacity-70 transition-all duration-300 ${
+                isScrollAtBottom
+                  ? "opacity-0 pointer-events-none"
+                  : "opacity-100"
+              }`}
+              onClick={scrollToBottom}
+            />
+          </div>
         )}
       </div>
     </>

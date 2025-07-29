@@ -11,6 +11,7 @@ module.exports = withMT({
     extend: {
       cursor: {
         left: "url(/cursor/cursor2_L.png), pointer",
+        // left: "url(/cursor/cursor2_L.svg), pointer",
         right: "url(/cursor/cursor2_R.png), pointer",
       },
       screens: {

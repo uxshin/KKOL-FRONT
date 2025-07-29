@@ -187,7 +187,7 @@ const ProjectDetail = ({ params }) => {
               className="absolute w-1/2 h-[250px] sm:h-screen z-50 hover:cursor-left opacity-100"
               onClick={handlePrev}
             >
-              <ChevronLeftIcon className="w-6 h-6 absolute top-2/4 -translate-y-2/4 left-4 text-black" />
+              {/* <ChevronLeftIcon className="w-5 h-5 absolute top-2/4 -translate-y-2/4 left-4 text-black" /> */}
             </div>
           )}
           nextArrow={({ handleNext }) => (
@@ -195,7 +195,7 @@ const ProjectDetail = ({ params }) => {
               className="absolute w-1/2 h-[250px] sm:h-screen right-0 z-50 hover:cursor-right opacity-100"
               onClick={handleNext}
             >
-              <ChevronRightIcon className="w-6 h-6 absolute top-2/4 -translate-y-2/4 right-4 text-black" />
+              {/* <ChevronRightIcon className="w-6 h-6 absolute top-2/4 -translate-y-2/4 right-4 text-black" /> */}
             </div>
           )}
           slideRef={ref}
