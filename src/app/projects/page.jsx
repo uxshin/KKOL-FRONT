@@ -2,6 +2,25 @@ import MotionDiv from "@/components/MotionDiv";
 import PostCard from "@/components/PostCard";
 import SideBar from "@/components/SideBar";
 
+export const metadata = {
+  title: "꼴 스튜디오의 프로젝트",
+  description:
+    "Kkol Studio's Works and Projects - 공간 디자인과 브랜딩 프로젝트를 소개합니다",
+  keywords:
+    "꼴스튜디오, 프로젝트, 공간디자인, 브랜딩, KKOL STUDIO, 인테리어 디자인",
+  openGraph: {
+    title: "꼴 스튜디오 프로젝트",
+    description: "Kkol Studio's Works and Projects",
+    type: "website",
+    url: "https://www.kkol-studio.com/projects",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "꼴 스튜디오 프로젝트",
+    description: "Kkol Studio's Works and Projects",
+  },
+};
+
 async function getData() {
   const url = `https://cms-kkolstudio-w0mq.onrender.com/api/posts?populate[0]=thumbnail&sort=publishedAt:desc`;
   const res = await fetch(url, { next: { revalidate: 30 } });

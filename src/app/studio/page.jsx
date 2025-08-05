@@ -2,6 +2,25 @@ import MotionDiv from "@/components/MotionDiv";
 import SideBar from "@/components/SideBar";
 import StudioTab from "@/components/studio-tab";
 
+export const metadata = {
+  title: "KKOL STUDIO - 꼴 스튜디오",
+  description:
+    "공간에 의미를 부여하는 디자이너 집단. 브랜딩부터 설계, 시공까지 전 과정을 유기적으로 이어가는 공간 디자인 스튜디오입니다.",
+  keywords:
+    "꼴스튜디오, KKOL STUDIO, 스튜디오 소개, 디자인 스튜디오, 브랜드 디자인, 공간 디자인, 인테리어",
+  openGraph: {
+    title: "KKOL STUDIO - 꼴 스튜디오",
+    description: "공간에 의미를 부여하는 디자이너 집단",
+    type: "website",
+    url: "https://www.kkol-studio.com/studio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KKOL STUDIO - 꼴 스튜디오",
+    description: "공간에 의미를 부여하는 디자이너 집단",
+  },
+};
+
 const Studio = () => {
   const email = "kkol.studio@gmail.com";
   const mobile = "instagram: @kkol.studio";
